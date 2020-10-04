@@ -1,8 +1,11 @@
 import axios from 'axios';
-import { getBaseURL } from './Utils';
+import { getAccessToken, getBaseURL } from './Utils';
 
 const requestStartInterceptor = (config) => {
     // Do something before request is sent
+    if (!config.headers.Authorization) {
+        config.headers.Authorization = getAccessToken();
+    }
     return config;
 };
 
@@ -43,7 +46,7 @@ const getApiInstance = () => {
     const config = {
         baseURL: getBaseURL(),
         headers: {
-            "Authorization": "qwerty"
+            "Authorization": getAccessToken(),
         }
     }
     const instance = axios.create(config);

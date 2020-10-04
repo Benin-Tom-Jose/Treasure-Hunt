@@ -1,7 +1,7 @@
-export const BASE_URL = "https://jsonplaceholder.typicode.com/";
+export const BASE_URL = "http://localhost:8081/";
 
 const ENDPOINTS = {
-    getPost: "todos/1"
+    googleLogin: "google/login",
 };
 
 const replaceParams = (url, params) => {

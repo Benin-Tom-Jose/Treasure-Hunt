@@ -5,12 +5,12 @@ export const getBaseURL = () => {
     return url;
 };
 
-export const setAuthToken = (authToken) => {
-    authToken && localStorage.setItem("__AUTH_TOKEN", authToken);
+export const setAccessToken = (accessToken) => {
+    accessToken && localStorage.setItem("__ACCESS_TOKEN", accessToken);
 }
 
-export const getAuthToken = () => {
-    return localStorage.getItem("__AUTH_TOKEN");
+export const getAccessToken = () => {
+    return localStorage.getItem("__ACCESS_TOKEN");
 }
 
 export const setRefreshToken = (refreshToken) => {
@@ -29,14 +29,14 @@ export const getGoolgeIdToken = () => {
     return localStorage.getItem("__GOOGLE_ID_TOKEN");
 }
 
-export const setToken = (authToken, refreshToken, googleIdToken) => {
-    setAuthToken(authToken);
+export const setToken = (accessToken, refreshToken, googleIdToken) => {
+    setAccessToken(accessToken);
     setRefreshToken(refreshToken);
     setGoogleIdToken(googleIdToken);
 }
 
 export const clearTokens = () => {
-    setAuthToken("");
+    setAccessToken("");
     setRefreshToken("");
     setGoogleIdToken("");
 }
