@@ -1,13 +1,20 @@
 import React from 'react';
-import Routes from '../config/Routes';
+import { Provider } from 'react-redux';
 
-import './App.scss';
+import Routes from '../config/Routes';
+import Store from '../config/redux/ConfigureStore';
+
 import 'normalize.css';
+import './App.scss';
 
 const App = () => {
-  return (
-    <Routes />
-  );
+
+    return (
+        <Provider store={Store}>
+            <Routes />
+        </Provider>
+    );
+
 };
 
 export default App;

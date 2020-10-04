@@ -5,10 +5,10 @@ import App from './app/App';
 import * as serviceWorker from './config/ServiceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 serviceWorker.unregister();

@@ -12,11 +12,19 @@ const replaceParams = (url, params) => {
 };
 
 const ApiUrl = {
+
     getUrl: (key, params = []) => {
         const endpoint = ENDPOINTS[key];
         const path = replaceParams(endpoint, params);
         return path;
-    }
+    },
+
+    getFullUrl: (key, params = []) => {
+        const path = ApiUrl.getUrl(key, params);
+        const url = BASE_URL + path;
+        return url;
+    },
+
 };
 
 export default ApiUrl;

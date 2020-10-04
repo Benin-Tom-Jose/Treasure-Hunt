@@ -1,10 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
+
 import { setToken } from '../../../../config/Utils';
 import { getGoogleAccessToken } from '../Auth.service';
+import { setAccessToken, setGoogleToken, setRefreshToken } from '../Auth.actions';
+
 import './GoogleLoginPage.scss';
 
+
 const GoogleLoginPage = () => {
+
+    const dispatch = useDispatch();
 
     const responseGoogle = (token) => {
         let tokenId = token && token.tokenId ? token.tokenId : null;
@@ -14,9 +21,10 @@ const GoogleLoginPage = () => {
                 let accessToken = response.accessToken
                 let refreshToken = response.refreshToken
                 let googleIdToken = tokenId;
-                console.log(tokenId);
-                console.log(response);
                 setToken(accessToken, refreshToken, googleIdToken);
+                dispatch(setGoogleToken(googleIdToken));
+                dispatch(setAccessToken(accessToken));
+                dispatch(setRefreshToken(refreshToken));
             })
             .catch(error => {
                 console.log(error);
@@ -35,6 +43,7 @@ const GoogleLoginPage = () => {
             />
         </div>
     );
+
 };
 
 export default GoogleLoginPage;
