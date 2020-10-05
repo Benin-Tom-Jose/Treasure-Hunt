@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, useHistory, useParams } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory, useParams } from 'react-router-dom';
 
 import GoogleLoginPage from './GoogleLoginPage/GoogleLoginPage';
 
@@ -20,6 +20,7 @@ const Auth = () => {
     return (
         <Switch>
             <Route exact path={`${BASE_PATH}/google`} component={GoogleLoginPage} />
+            <Redirect to="/page/404" />
         </Switch>
     );
 };
