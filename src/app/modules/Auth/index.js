@@ -15,7 +15,7 @@ const Auth = () => {
         if (params && !params.authType) {
             history.replace(BASE_PATH + DEFAULT_AUTH);
         }
-    }, [params, history]);
+    });
 
     return (
         <Switch>

@@ -16,7 +16,7 @@ const Page = () => {
         if (params && !params.pageType) {
             history.replace(BASE_PATH + DEFAULT_PAGE);
         }
-    }, [params, history]);
+    });
 
     return (
         <Switch>
