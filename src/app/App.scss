@@ -1,3 +1,5 @@
+@import "../config/Styles.scss";
+
 html {
     height: 100%;
     width: 100%;
@@ -5,7 +7,7 @@ html {
     body {
         height: 100%;
         width: 100%;
-        font-family: 'Montserrat', 'Roboto', sans-serif;
+        font-family: $font-family;
         #root {
             height: 100%;
             width: 100%;
