@@ -1,12 +1,28 @@
+@import "../../../../config/Styles.scss";
+
 .page-not-found-wrapper {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: url("../../../../assets/img/bg-landscape-2.jpg");
 
-    a {
-        font-size: 1.5rem;
+    .card {
+        background: $clr-transparent-dark-300;
+        color: $clr-secondary-main;
+        min-height: 25rem;
+        display: flex;
+        align-items: center;
+
+        .card-content {
+            text-align: center;
+
+            a {
+                color: $clr-light-100;
+                font-size: 1.5rem;
+            }
+        }
     }
 }

@@ -1,12 +1,19 @@
 import React from 'react';
 
+import AppContainer from '../../components/AppContainer/AppContainer';
+
 import './Home.scss';
 
 const Home = () => {
     return (
-        <div className="home-page-wrapper">
-            <h1>Home Page</h1>
-        </div>
+        <AppContainer>
+            <div className="home-page-wrapper">
+                <section className="section section-hero">
+                </section>
+                <section className="section">
+                </section>
+            </div>
+        </AppContainer>
     );
 };
 
