@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AppBar, Hidden, Icon, IconButton, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
-import img from '../../../assets/img/logo-light-1.png';
+
+import { getAsset } from '../../../config/Utils';
 
 import './Navbar.scss';
 
@@ -22,7 +23,7 @@ const Navbar = () => {
             <AppBar color="transparent" className="navbar-wrapper">
                 <nav className={`navbar-container ${trigger ? 'navbar-mini' : ''}`}>
                     <div className="brand-container">
-                        <img src={img} alt="Treasure Hunt" className="brand-logo" />
+                        <img src={getAsset("logo-light-1.png", "img")} alt="Treasure Hunt" className="brand-logo" />
                     </div>
                     <Hidden mdUp>
                         <IconButton

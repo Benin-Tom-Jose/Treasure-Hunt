@@ -49,7 +49,7 @@
                 text-transform: uppercase;
                 cursor: pointer;
                 &:hover {
-                    color: $clr-secondary-main;
+                    color: $clr-primary-main;
                 }
             }
         }
@@ -88,7 +88,7 @@
                 cursor: pointer;
                 &:hover {
                     background-color: $clr-transparent-dark-300;
-                    color: $clr-secondary-main;
+                    color: $clr-primary-main;
                 }
             }
         }

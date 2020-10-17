@@ -3,6 +3,9 @@ import Proptypes from 'prop-types';
 
 import Navbar from '../Navbar/Navbar';
 
+import './AppContainer.scss';
+
+
 const AppContainer = (props) => {
     return (
         <div className={`app-container-wrapper ${props.className}`}>

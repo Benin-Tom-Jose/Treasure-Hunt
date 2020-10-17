@@ -1,0 +1,46 @@
+@import "../../../config/Styles.scss";
+
+.contest-card-wrapper {
+    margin: 1rem;
+    @media (min-width: 600px) {
+        max-width: 30rem;
+    }
+
+    .media {
+        height: 15rem;
+    }
+
+    .card-content-wrapper {
+        text-align: center;
+
+        .title {
+            color: $clr-dark-300;
+            font-size: $fs-sm;
+            font-weight: $fw-semibold;
+            letter-spacing: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .label {
+            color: $clr-dark-200;
+            font-size: $fs-xs;
+            font-weight: $fw-bold;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            margin-top: 3rem;
+            display: block;
+        }
+
+        .start {
+            color: $clr-primary-main;
+            font-size: $fs-sm;
+            font-weight: $fw-semibold;
+        }
+
+        .card-action-wrapper{
+            >button{
+                margin: auto;
+            }
+        }
+    }
+}
