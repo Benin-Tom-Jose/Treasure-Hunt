@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { BASE_URL } from "./ApiUrl";
 
 export const getBaseURL = () => {
@@ -50,4 +51,15 @@ export const getAsset = (fileName, path = "") => {
         asset = "";
     }
     return asset;
+};
+
+export const formatDate = (date, format) => {
+    let formattedDate;
+    try {
+        formattedDate = moment(date).format(format);
+    }
+    catch {
+        formattedDate = "";
+    }
+    return formattedDate;
 };

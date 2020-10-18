@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { getActiveContests } from './Home.service';
 import Carousel from '../../components/Carousel/Carousel';
@@ -45,8 +46,10 @@ const DEFAULT_CAROUSEL_SETTINGS = {
 
 const Home = () => {
 
-    const [carouselSettings, setCarouselSettings] = useState(DEFAULT_CAROUSEL_SETTINGS);
+    const history = useHistory();
+
     const [contests, setContests] = useState([]);
+    const [carouselSettings, setCarouselSettings] = useState(DEFAULT_CAROUSEL_SETTINGS);
 
     useEffect(() => {
         getContests();
@@ -100,13 +103,20 @@ const Home = () => {
             });
     }
 
+    const playClickHandler = (id) => { 
+        history.push(`contest/${id}`);
+    };
+
+    const leaderboardClickHandler = (id) => {
+        history.push(`contest/${id}/leaderboard`);
+    };
+
     return (
         <AppContainer>
             <div className="home-page-wrapper">
                 <section className="section-hero">
                 </section>
                 <section component="section" className="section-contest">
-                    
                     <Carousel settings={carouselSettings} className="carousel-wrapper">
                         {
                             contests &&
@@ -116,6 +126,8 @@ const Home = () => {
                                     id={contest._id}
                                     title={contest.contestName}
                                     start={contest.startDate}
+                                    onPlayClick={playClickHandler}
+                                    onLearderboardClick={leaderboardClickHandler}
                                 />
                             )
                         }

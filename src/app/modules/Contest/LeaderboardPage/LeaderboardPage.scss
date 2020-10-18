@@ -1,0 +1,103 @@
+@import "../../../../config/Styles.scss";
+
+.leaderboard-wrapper {
+    min-height: calc(100% - 10rem);
+    padding-top: 8rem;
+    position: relative;
+
+    @media (min-width: 600px) {
+        padding-top: 10rem;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../../assets/img/bg-landscape-2.jpg");
+        filter: blur(0.25rem);
+        z-index: -1;
+    }
+
+    .leaderboard-card-wrapper {
+        background: $clr-transparent-dark-300;
+        padding: 2rem;
+        margin: 1rem;
+
+        @media (min-width: 600px) {
+            margin: 2rem;
+        }
+
+        @media (min-width: 960px) {
+            margin: 5rem;
+            padding: 3rem 4rem;
+        }
+
+        .title {
+            font-size: $fs-xl;
+            font-weight: $fw-bold;
+            letter-spacing: 0.25rem;
+            color: $clr-light-100;
+            text-transform: capitalize;
+        }
+
+        .leaderboard-list-wrapper {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            margin-top: 3rem;
+
+            .list-item-container {
+                padding: 1.5rem 2rem;
+                color: $clr-light-100;
+                font-size: $fs-sm;
+                font-weight: $fw-regular;
+                display: flex;
+
+                &:nth-child(2n-1) {
+                    background: $clr-transparent-dark-300;
+                }
+
+                &:hover {
+                    background: $clr-primary-main;
+                }
+
+                &:nth-child(1) {
+                    background: $clr-dark-100;
+                    font-weight: $fw-bold;
+                    &:hover {
+                        background: $clr-dark-100;
+                    }
+
+                    > span {
+                        letter-spacing: 0.2rem;
+                        text-transform: uppercase;
+                        color: $clr-primary-main;
+                    }
+                }
+
+                > span {
+                    padding: 0 0.5rem;
+
+                    &.rank {
+                        flex: 2;
+                    }
+
+                    &.name {
+                        flex: 5;
+                    }
+
+                    &.level {
+                        flex: 2;
+                    }
+
+                    &.time {
+                        flex: 5;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AppBar, Hidden, Icon, IconButton, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
 
 import { getAsset } from '../../../config/Utils';
@@ -23,7 +24,9 @@ const Navbar = () => {
             <AppBar color="transparent" className="navbar-wrapper">
                 <nav className={`navbar-container ${trigger ? 'navbar-mini' : ''}`}>
                     <div className="brand-container">
-                        <img src={getAsset("logo-light-1.png", "img")} alt="Treasure Hunt" className="brand-logo" />
+                        <Link to="/">
+                            <img src={getAsset("logo-light-1.png", "img")} alt="Treasure Hunt" className="brand-logo" />
+                        </Link>
                     </div>
                     <Hidden mdUp>
                         <IconButton
@@ -39,7 +42,7 @@ const Navbar = () => {
                     </Hidden>
                     <Hidden smDown>
                         <ol className="navlist-container">
-                            <li className="nav-item" onClick={() => handleDrawerState(true)}>Contest</li>
+                            <li className="nav-item">Contest</li>
                             <li className="nav-item">Rules</li>
                             <li className="nav-item">Contact</li>
                             <li className="nav-item">Login</li>
