@@ -59,33 +59,27 @@ const Home = () => {
         return {
             responsive: [
                 {
-                    breakpoint: 400,
-                    settings: {
-                        slidesToShow: 1,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: slideLength < 2 ? 1 : 2,
-                    }
-                },
-                {
-                    breakpoint: 960,
-                    settings: {
-                        slidesToShow: slideLength < 3 ? slideLength : 3,
-                    }
-                },
-                {
                     breakpoint: 1280,
                     settings: {
                         slidesToShow: slideLength < 4 ? slideLength : 4,
                     }
                 },
                 {
-                    breakpoint: 1920,
+                    breakpoint: 960,
                     settings: {
-                        slidesToShow: 5,
+                        slidesToShow: slideLength < 2 ? 1 : 2,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                },
+                {
+                    breakpoint: 400,
+                    settings: {
+                        slidesToShow: 1,
                     }
                 },
             ]
@@ -103,7 +97,7 @@ const Home = () => {
             });
     }
 
-    const playClickHandler = (id) => { 
+    const playClickHandler = (id) => {
         history.push(`contest/${id}`);
     };
 
@@ -117,6 +111,7 @@ const Home = () => {
                 <section className="section-hero">
                 </section>
                 <section component="section" className="section-contest">
+                    <h1 className="section-title">Contest</h1>
                     <Carousel settings={carouselSettings} className="carousel-wrapper">
                         {
                             contests &&

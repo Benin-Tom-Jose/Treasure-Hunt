@@ -2,6 +2,7 @@
 
 .contest-card-wrapper {
     margin: 1rem;
+
     @media (min-width: 600px) {
         max-width: 30rem;
     }
@@ -37,9 +38,10 @@
             font-weight: $fw-semibold;
         }
 
-        .card-action-wrapper{
-            >button{
-                margin: auto;
+        .card-action-wrapper {
+            flex-wrap: wrap;
+            > button {
+                margin: 0.25rem auto;
             }
         }
     }
