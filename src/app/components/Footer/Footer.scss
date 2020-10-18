@@ -1,0 +1,49 @@
+@import "../../../config/Styles.scss";
+
+.footer-wrapper {
+    background: #151414;
+    text-align: center;
+    font-size: $fs-sm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+
+    @media (min-width: 600px) {
+        padding: 2rem 6rem;
+    }
+
+    .copyright-container {
+        color: #878787;
+    }
+
+    .highlight-container {
+        display: flex;
+        flex-direction: column;
+
+        .label {
+            color: #878787;
+            display: flex;
+            align-items: center;
+            font-size: $fs-xs;
+
+            .icon {
+                color: #e90606;
+                font-size: 2rem;
+                margin: 0.5rem;
+                animation: pound 1s infinite;
+                animation-direction: alternate;
+            }
+
+            @keyframes pound {
+                to {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .creators {
+            color: $clr-primary-main;
+        }
+    }
+}

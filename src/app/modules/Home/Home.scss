@@ -3,6 +3,7 @@
 .home-page-wrapper {
     height: 100%;
     width: 100%;
+    display: contents;
 
     .section-title {
         text-transform: uppercase;
@@ -36,6 +37,7 @@
         background-size: cover;
         background-position: right;
         background-image: url("../../../assets/img/bg-portrait-1.jpg");
+
         &::before {
             content: "";
             position: absolute;
@@ -45,6 +47,7 @@
             left: 0;
             background: $clr-transparent-dark-100;
         }
+
         @media (min-width: 600px) {
             background-position: left;
         }
@@ -63,6 +66,74 @@
 
             @media (min-width: 960px) {
                 margin: 5rem;
+                margin-top: 2rem;
+            }
+        }
+    }
+
+    .section-rules {
+        padding: 3rem 0;
+        position: relative;
+
+        @media (min-width: 960px) {
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 20rem;
+                width: 20rem;
+                transform: translate(-50%, 40%);
+                filter: opacity(0.5);
+                background-size: cover;
+                background-image: url("https://img.pngio.com/laws-and-regulations-120625-png-images-pngio-regulations-png-512_512.png");
+            }
+        }
+
+        .rules-wrapper {
+            padding: 2rem;
+            padding-left: 3rem;
+
+            @media (min-width: 600px) {
+                margin: 0 4rem;
+                padding-left: 2rem;
+            }
+
+            @media (min-width: 960px) {
+                margin: 0 6rem;
+            }
+
+            .each-rule {
+                margin-bottom: 1rem;
+                font-size: $fs-sm;
+                font-weight: $fw-semibold;
+                text-align: justify;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .section-contact {
+        background: $clr-transparent-dark-100;
+        padding: 3rem 0;
+        > iframe {
+            height: 30rem;
+            width: calc(100% - 2rem);
+            margin: 1rem;
+            @media (min-width: 600px) {
+                height: 40rem;
+                width: calc(100% - 8rem);
+                margin: 0 4rem;
+                margin-top: 2rem;
+            }
+
+            @media (min-width: 960px) {
+                height: 50rem;
+                width: calc(100% - 12rem);
+                margin: 0 6rem;
                 margin-top: 2rem;
             }
         }

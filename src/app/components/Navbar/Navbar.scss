@@ -9,37 +9,58 @@
         justify-content: space-between;
         transition: 0.25s all ease-in-out;
         background: $clr-transparent-dark-200;
+
         @media (min-width: 600px) {
             height: 8rem;
             padding: 1rem 3rem;
         }
+
         @media (min-width: 960px) {
             height: 10rem;
             padding: 1rem 3rem;
         }
+
         &.navbar-mini {
             height: 5rem;
             background: $clr-dark-100;
             border-bottom: 1px solid $clr-light-300;
+
+            .brand-container {
+                .brand-logo {
+                    width: 15rem;
+                    object-fit: cover;
+                }
+            }
         }
+
         .brand-container {
             height: 100%;
             width: auto;
+
             .brand-logo {
                 height: 100%;
-                width: auto;
+                width: 15rem;
+                object-fit: cover;
+
+                @media (min-width: 960px) {
+                    width: auto;
+                }
             }
         }
+
         .btn-menu {
             color: $clr-light-100;
+
             .MuiIcon-root {
                 font-size: $ficon-lg;
             }
         }
+
         .navlist-container {
             display: flex;
             align-items: center;
             list-style: none;
+
             .nav-item {
                 color: $clr-light-100;
                 margin: 0 2rem;
@@ -48,6 +69,7 @@
                 letter-spacing: 0.2rem;
                 text-transform: uppercase;
                 cursor: pointer;
+
                 &:hover {
                     color: $clr-primary-main;
                 }
@@ -55,28 +77,34 @@
         }
     }
 }
+
 .sidepane-wrapper {
     .MuiPaper-root {
         width: 75%;
         max-width: 30rem;
         background-color: $clr-transparent-dark-300;
     }
+
     .sidepane-container {
         .sidepane-header-container {
             margin: 1rem;
             display: flex;
             justify-content: flex-end;
+
             > button {
                 color: $clr-light-100;
+
                 .MuiIcon-root {
                     font-size: $ficon-lg;
                 }
             }
         }
+
         .navlist-container {
             list-style: none;
             padding: 0;
             margin: 0;
+
             .nav-item {
                 color: $clr-light-100;
                 margin: 0 2rem;
@@ -86,6 +114,7 @@
                 letter-spacing: 0.2rem;
                 text-transform: uppercase;
                 cursor: pointer;
+
                 &:hover {
                     background-color: $clr-transparent-dark-300;
                     color: $clr-primary-main;
