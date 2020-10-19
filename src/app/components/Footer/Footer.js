@@ -9,7 +9,7 @@ const Footer = () => {
             <span className="copyright-container">Copyright © 2020, All Rights Reserved.</span>
             <div className="highlight-container">
                 <span className="label">Made with <Icon className="icon">favorite</Icon></span>
-                <span className="creators">Sebin & Benin</span>
+                <span className="creators">@L7</span>
             </div>
         </footer>
     );

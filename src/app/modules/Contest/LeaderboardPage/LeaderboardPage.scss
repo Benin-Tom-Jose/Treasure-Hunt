@@ -1,7 +1,7 @@
 @import "../../../../config/Styles.scss";
 
 .leaderboard-wrapper {
-    min-height: calc(100% - 10rem);
+    min-height: calc(100% - 8rem);
     padding-top: 8rem;
     position: relative;
 
@@ -73,7 +73,6 @@
 
                     > span {
                         letter-spacing: 0.2rem;
-                        text-transform: uppercase;
                         color: $clr-primary-main;
                     }
                 }
