@@ -24,9 +24,9 @@ const Navbar = () => {
             <AppBar color="transparent" className="navbar-wrapper">
                 <nav className={`navbar-container ${trigger ? 'navbar-mini' : ''}`}>
                     <div className="brand-container">
-                        <Link to="/">
+                        <a href="/">
                             <img src={getAsset("logo-light-1.png", "img")} alt="Treasure Hunt" className="brand-logo" />
-                        </Link>
+                        </a>
                     </div>
                     <Hidden mdUp>
                         <IconButton

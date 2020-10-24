@@ -9,7 +9,7 @@ const ENDPOINTS = {
 const replaceParams = (url, params) => {
     const regex = /\{:[A-Za-z0-9-_]+\}/g;
     let index = 0;
-    const path = url.replace(regex, () => params[index++]);
+    const path = url ? url.replace(regex, () => params[index++]) : "";
     return path;
 };
 
