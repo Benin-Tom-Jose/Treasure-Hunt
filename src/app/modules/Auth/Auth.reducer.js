@@ -2,12 +2,14 @@ import {
     AUTH_SET_ACCESS_TOKEN,
     AUTH_SET_REFRESH_TOKEN,
     AUTH_SET_GOOGLE_TOKEN,
+    AUTH_SET_IS_LOGIN_MODAL_OPEN
 } from '../../../config/redux/ActionTypes';
 
 const initialState = {
     accessToken: "",
     refreshToken: "",
     googleToken: "",
+    isLoginModalOpen: false
 };
 
 const AuthReducer = (state = initialState, action) => {
@@ -32,6 +34,13 @@ const AuthReducer = (state = initialState, action) => {
             state = {
                 ...state,
                 googleToken: action.payload
+            };
+            break;
+
+        case AUTH_SET_IS_LOGIN_MODAL_OPEN:
+            state = {
+                ...state,
+                isLoginModalOpen: action.payload
             };
             break;
 

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { getLeaderboard } from '../Contest.service';
 import { formatDate } from '../../../../config/Utils';
+import AppContainer from '../../../components/AppContainer/AppContainer';
 
 import './LeaderboardPage.scss';
 
@@ -35,30 +36,32 @@ const LeaderboardPage = () => {
     };
 
     return (
-        <div className="leaderboard-wrapper">
-            <article className="leaderboard-card-wrapper">
-                <h1 className="title">{`${title} Leaderboard`}</h1>
-                <ul className="leaderboard-list-wrapper">
-                    <li className="list-item-container">
-                        <span className="rank">Rank</span>
-                        <span className="name">Name</span>
-                        <span className="level">Level</span>
-                        <span className="time">Time Completed</span>
-                    </li>
-                    {
-                        leaderboard &&
-                        leaderboard.map((person, index) =>
-                            <li className="list-item-container" key={index}>
-                                <span className="rank">{`${index + 1}.`}</span>
-                                <span className="name">{person.name}</span>
-                                <span className="level">{person.level}</span>
-                                <span className="time">{formatDate(person.completedIn, "MMM D, YYYY, hh : mm a")}</span>
-                            </li>
-                        )
-                    }
-                </ul>
-            </article>
-        </div>
+        <AppContainer>
+            <div className="leaderboard-wrapper">
+                <article className="leaderboard-card-wrapper">
+                    <h1 className="title">{`${title} Leaderboard`}</h1>
+                    <ul className="leaderboard-list-wrapper">
+                        <li className="list-item-container">
+                            <span className="rank">Rank</span>
+                            <span className="name">Name</span>
+                            <span className="level">Level</span>
+                            <span className="time">Time Completed</span>
+                        </li>
+                        {
+                            leaderboard &&
+                            leaderboard.map((person, index) =>
+                                <li className="list-item-container" key={index}>
+                                    <span className="rank">{`${index + 1}.`}</span>
+                                    <span className="name">{person.name}</span>
+                                    <span className="level">{person.level}</span>
+                                    <span className="time">{formatDate(person.completedIn, "MMM D, YYYY, hh : mm a")}</span>
+                                </li>
+                            )
+                        }
+                    </ul>
+                </article>
+            </div>
+        </AppContainer>
     );
 
 };

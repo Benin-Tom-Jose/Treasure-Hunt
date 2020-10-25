@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { AppBar, Hidden, Icon, IconButton, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
 
-import { getAsset } from '../../../config/Utils';
+import { setIsLoginModalOpen } from '../../modules/Auth/Auth.actions';
+import { clearTokens, getAsset, isUserAuthenticated } from '../../../config/Utils';
 
 import './Navbar.scss';
 
 const Navbar = () => {
 
+    const history = useHistory();
+    const dispatch = useDispatch();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+    useEffect(() => {
+        if (isUserAuthenticated()) {
+            setIsAuthenticated(true);
+        }
+        else {
+            setIsAuthenticated(false);
+        }
+    });
 
     const trigger = useScrollTrigger({
         disableHysteresis: true,
@@ -19,14 +33,31 @@ const Navbar = () => {
         setIsDrawerOpen(isOpen)
     };
 
+    const handleLogoClick = () => {
+        history.push("/");
+    };
+
+    const handleAuth = () => {
+        if (isUserAuthenticated()) {
+            history.push('/');
+            clearTokens();
+        }
+        else {
+            dispatch(setIsLoginModalOpen(true));
+        }
+    };
+
     return (
         <>
             <AppBar color="transparent" className="navbar-wrapper">
                 <nav className={`navbar-container ${trigger ? 'navbar-mini' : ''}`}>
                     <div className="brand-container">
-                        <a href="/">
-                            <img src={getAsset("logo-light-1.png", "img")} alt="Treasure Hunt" className="brand-logo" />
-                        </a>
+                        <img
+                            src={getAsset("logo-light-1.png", "img")}
+                            alt="Treasure Hunt"
+                            className="brand-logo"
+                            onClick={handleLogoClick}
+                        />
                     </div>
                     <Hidden mdUp>
                         <IconButton
@@ -45,7 +76,7 @@ const Navbar = () => {
                             <li className="nav-item">Contest</li>
                             <li className="nav-item">Rules</li>
                             <li className="nav-item">Contact</li>
-                            <li className="nav-item">Login</li>
+                            <li className="nav-item" onClick={handleAuth}>{isAuthenticated ? 'Logout' : 'Login'}</li>
                         </ol>
                     </Hidden>
                 </nav>
@@ -72,7 +103,7 @@ const Navbar = () => {
                         <li className="nav-item">Contest</li>
                         <li className="nav-item">Rules</li>
                         <li className="nav-item">Contact</li>
-                        <li className="nav-item">Login</li>
+                        <li className="nav-item" onClick={handleAuth}>{isAuthenticated ? 'Logout' : 'Login'}</li>
                     </ol>
                 </div>
             </SwipeableDrawer>

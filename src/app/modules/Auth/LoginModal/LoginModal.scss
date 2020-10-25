@@ -1,0 +1,48 @@
+@import "../../../../config/Styles.scss";
+
+.login-modal-wrapper {
+    .login-modal-container {
+        position: relative;
+        padding-left: 45%;
+        min-height: 25rem;
+        display: flex;
+        flex-direction: column;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 45%;
+            background-image: url("../../../../assets/img/bg-landscape-1.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .btn-close {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+
+        .modal-content-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+
+            > button {
+                background-color: $clr-primary-main !important;
+
+                > div {
+                    display: flex;
+                }
+
+                > span {
+                    color: $clr-light-100;
+                }
+            }
+        }
+    }
+}

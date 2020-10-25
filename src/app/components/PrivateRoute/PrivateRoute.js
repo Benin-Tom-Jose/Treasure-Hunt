@@ -1,7 +1,10 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
+import { addNextUrl } from '../../App.actions';
 import { getAccessToken } from '../../../config/Utils';
+import Store from '../../../config/redux/ConfigureStore';
+import { setIsLoginModalOpen } from '../../modules/Auth/Auth.actions';
 
 
 const getRedirectionComponent = (props, Component) => {
@@ -12,8 +15,9 @@ const getRedirectionComponent = (props, Component) => {
         routeElement = <Component {...props} />;
     }
     else {
-        console.log(props);
-        routeElement = <Redirect to='/auth' />;
+        Store.dispatch(setIsLoginModalOpen(true));
+        Store.dispatch(addNextUrl(props.location.pathname));
+        routeElement = <Redirect to='/' />;
     }
 
     return routeElement;

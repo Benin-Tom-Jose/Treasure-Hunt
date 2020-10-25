@@ -7,7 +7,7 @@ export const getBaseURL = () => {
 };
 
 export const setAccessToken = (accessToken) => {
-    accessToken && localStorage.setItem("__ACCESS_TOKEN", accessToken);
+    localStorage.setItem("__ACCESS_TOKEN", accessToken);
 };
 
 export const getAccessToken = () => {
@@ -15,7 +15,7 @@ export const getAccessToken = () => {
 };
 
 export const setRefreshToken = (refreshToken) => {
-    refreshToken && localStorage.setItem("__REFRESH_TOKEN", refreshToken);
+    localStorage.setItem("__REFRESH_TOKEN", refreshToken);
 };
 
 export const getRefreshToken = () => {
@@ -23,7 +23,7 @@ export const getRefreshToken = () => {
 };
 
 export const setGoogleIdToken = (idToken) => {
-    idToken && localStorage.setItem("__GOOGLE_ID_TOKEN", idToken);
+    localStorage.setItem("__GOOGLE_ID_TOKEN", idToken);
 };
 
 export const getGoolgeIdToken = () => {
@@ -62,4 +62,9 @@ export const formatDate = (date, format) => {
         formattedDate = "";
     }
     return formattedDate;
+};
+
+export const isUserAuthenticated = () => {
+    let isAuthenticated = getAccessToken() ? true : false;
+    return isAuthenticated;
 };

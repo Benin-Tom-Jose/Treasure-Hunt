@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect, Route, Switch, useHistory, useParams } from 'react-router';
+import { Redirect, Route, Switch, useHistory, useParams } from 'react-router-dom';
 
 import PageNotFound from './PageNotFound/PageNotFound';
 

@@ -1,18 +1,17 @@
 import {
     APP_INCREMENT_APISTACK,
     APP_DECREMENT_APISTACK,
-    APP_PUSH_URLSTACK,
-    APP_POP_URLSTACK,
+    APP_ADD_NEXT_URL,
+    APP_CLEAR_NEXT_URL,
 } from '../config/redux/ActionTypes';
 
 const initialState = {
     apiStack: [],
-    urlStack: [],
+    nextUrl: "",
 };
 
 const AppReducer = (state = initialState, action) => {
     let apiStack = [...state.apiStack];
-    let urlStack = [...state.urlStack];
 
     switch (action.type) {
 
@@ -32,17 +31,17 @@ const AppReducer = (state = initialState, action) => {
             };
             break;
 
-        case APP_PUSH_URLSTACK:
+        case APP_ADD_NEXT_URL:
             state = {
                 ...state,
-                urlStack: urlStack.push(action.payload)
+                nextUrl: action.payload
             };
             break;
 
-        case APP_POP_URLSTACK:
+        case APP_CLEAR_NEXT_URL:
             state = {
                 ...state,
-                urlStack: urlStack.pop()
+                nextUrl: ""
             };
             break;
 

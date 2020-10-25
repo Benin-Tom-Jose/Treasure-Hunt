@@ -3,7 +3,9 @@ export const BASE_URL = "http://localhost:8081/";
 const ENDPOINTS = {
     googleLogin: "google/login",
     getActiveContests: "api/contests",
-    getLeaderboard: "api/leaderboard?contestId={:id}&page={:page}&limit={:limit}"
+    getLeaderboard: "api/leaderboard?contestId={:id}&page={:page}&limit={:limit}",
+    getCurrentQuestion: "api/questions/currentquestion/?contestId={:contestId}",
+    submitContestAnswer: "api/questions/answer",
 };
 
 const replaceParams = (url, params) => {

@@ -3,6 +3,7 @@ import Proptypes from 'prop-types';
 
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import LoginModal from '../../modules/Auth/LoginModal/LoginModal';
 
 import './AppContainer.scss';
 
@@ -13,6 +14,7 @@ const AppContainer = (props) => {
             <Navbar />
             {props.children}
             {!props.hideFooter && <Footer />}
+            <LoginModal />
         </div>
     );
 };
