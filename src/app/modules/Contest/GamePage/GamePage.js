@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Tab, Tabs, TextField } from '@material-ui/core';
 
-import { formatDate } from '../../../../config/Utils';
+import { formatDate, getAsset } from '../../../../config/Utils';
 import AppContainer from '../../../components/AppContainer/AppContainer';
 import { getCurrentQuestion, submitContestAnswer } from '../Contest.service';
 
@@ -149,7 +149,7 @@ const GamePage = () => {
                                 <p className="time">{`Time Completed : ${currentQuestion && currentQuestion.timeCompleted ? formatDate(currentQuestion.timeCompleted, "MMM D, YYYY, hh : mm a") : ''}`}</p>
                                 <div className="content-container">
                                     <h6 className="content">Looks like you are a ninja
-                                            <img className="emoji" src="https://lh3.googleusercontent.com/proxy/KLTJwLrLo-CFz0efxVLC8enm2KbY7TbSmewUUSKQqm27L_InSOoe2Ar2zaFsgdqhESBcXeursCxW5f8SYJrwh4ggvOtggjlDGRfRyFQCnKBGrt3KuPM" />
+                                            <img className="emoji" alt="ninja" src={getAsset("ninja.png", "img")} />
                                     </h6>
                                     <h6 className="content">Please wait while we cook some questions for you.</h6>
                                 </div>

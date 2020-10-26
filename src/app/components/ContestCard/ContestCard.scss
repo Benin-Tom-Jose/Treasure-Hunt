@@ -40,9 +40,20 @@
 
         .card-action-wrapper {
             flex-wrap: wrap;
+
             > button {
                 margin: 0.25rem auto;
             }
+        }
+
+        .soon-label {
+            color: $clr-dark-200;
+            font-size: $fs-lg;
+            font-weight: $fw-bold;
+            letter-spacing: 0.1rem;
+            display: block;
+            text-align: center;
+            margin: 2.28rem 0;
         }
     }
 }

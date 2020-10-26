@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { AppBar, Hidden, Icon, IconButton, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
+import { AppBar, Hidden, Icon, IconButton, LinearProgress, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
 
 import { setIsLoginModalOpen } from '../../modules/Auth/Auth.actions';
 import { clearTokens, getAsset, isUserAuthenticated } from '../../../config/Utils';
@@ -15,6 +15,7 @@ const Navbar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const api = useSelector(state => state.AppReducer.apiStack);
 
     useEffect(() => {
         if (isUserAuthenticated()) {
@@ -80,6 +81,7 @@ const Navbar = () => {
                         </ol>
                     </Hidden>
                 </nav>
+                {api.length > 0 && <LinearProgress />}
             </AppBar>
             <SwipeableDrawer
                 anchor="right"

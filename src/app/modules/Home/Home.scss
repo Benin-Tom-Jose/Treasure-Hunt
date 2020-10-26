@@ -10,6 +10,7 @@
         position: relative;
         padding-left: 2rem;
         margin-left: 1rem;
+        text-shadow: 1px 1px $clr-primary-main;
 
         @media (min-width: 600px) {
             margin-left: 4rem;
@@ -33,10 +34,15 @@
     .section-hero {
         position: relative;
         height: 100vh;
+        min-height: 50rem;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: right;
         background-image: url("../../../assets/img/bg-portrait-1.jpg");
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
         &::before {
             content: "";
@@ -51,12 +57,63 @@
         @media (min-width: 600px) {
             background-position: left;
         }
+
+        .title {
+            font-family: "Baloo Paaji", cursive;
+            color: $clr-light-100;
+            z-index: 1;
+            text-align: center;
+            padding: 1rem;
+            margin: 0;
+            text-shadow: 2px 2px $clr-primary-main;
+            animation: hero-text 3s 1;
+            max-width: 100%;
+            font-size: 5rem;
+
+            @media (min-width: 600px) {
+                font-size: 7rem;
+            }
+        }
+
+        .tagline {
+            font-family: "Baloo Paaji", cursive;
+            color: $clr-light-100;
+            text-transform: uppercase;
+            letter-spacing: 0.5rem;
+            z-index: 1;
+            text-align: center;
+            padding: 1rem;
+            text-shadow: 2px 2px $clr-primary-main;
+            font-size: 2rem;
+
+            @media (min-width: 600px) {
+                font-size: 3rem;
+            }
+        }
+
+        @keyframes hero-text {
+            0% {
+                color: $clr-dark-100;
+                text-shadow: 2px 2px $clr-light-100;
+                margin-bottom: -40rem;
+            }
+
+            30% {
+                letter-spacing: 2rem;
+                margin-bottom: -40rem;
+            }
+
+            85% {
+                letter-spacing: 1rem;
+                margin-bottom: -4rem;
+            }
+        }
     }
 
     .section-contest {
         overflow: hidden;
         background: $clr-transparent-dark-100;
-        padding: 3rem 0;
+        padding: 10rem 0;
 
         .carousel-wrapper {
             @media (min-width: 600px) {
@@ -72,7 +129,7 @@
     }
 
     .section-rules {
-        padding: 3rem 0;
+        padding: 10rem 0;
         position: relative;
 
         @media (min-width: 960px) {
@@ -105,7 +162,7 @@
 
             .each-rule {
                 margin-bottom: 1rem;
-                font-size: $fs-sm;
+                font-size: $fs-md;
                 font-weight: $fw-semibold;
                 text-align: justify;
 
@@ -118,7 +175,8 @@
 
     .section-contact {
         background: $clr-transparent-dark-100;
-        padding: 3rem 0;
+        padding: 8rem 0;
+
         > iframe {
             height: 30rem;
             width: calc(100% - 2rem);
