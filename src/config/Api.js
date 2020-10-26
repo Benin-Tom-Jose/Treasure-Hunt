@@ -8,7 +8,7 @@ import { incrementApiStack, decrementApiStack } from '../app/App.actions';
 const requestStartInterceptor = (config) => {
     // Do something before request is sent
     if (!config.headers.Authorization) {
-        config.headers.Authorization = getAccessToken();
+        config.headers['x-auth-token'] = getAccessToken();
     }
     Store.dispatch(incrementApiStack());
     return config;
@@ -55,7 +55,7 @@ const getApiInstance = () => {
     const config = {
         baseURL: getBaseURL(),
         headers: {
-            "Authorization": getAccessToken(),
+            "x-auth-token": getAccessToken(),
         }
     }
 

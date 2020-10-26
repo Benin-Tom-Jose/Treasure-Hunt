@@ -4,26 +4,15 @@ import ApiUrl from "../../../config/ApiUrl";
 export const getActiveContests = () => {
     let url = ApiUrl.getUrl("getActiveContests");
 
-    return Promise.resolve(ACTIVE_CONTEST);
-    // return Api.get(url);
+    return Api.get(url);
 };
 
 export const getContestRules = () => {
     let url = ApiUrl.getUrl("getContestRules");
 
-    return Promise.resolve(CONTEST_RULES);
     // return Api.get(url);
+    return Promise.resolve(CONTEST_RULES);
 };
-
-const ACTIVE_CONTEST = [
-    {
-        "active": true,
-        "started": false,
-        "_id": "5f676002598dbcc7eeb02c26",
-        "contestName": "Alohamora",
-        "startDate": "2020-09-28T16:00:00.000Z"
-    }
-];
 
 const CONTEST_RULES = [
     "The ranking will be based on who finishes the most questions, in minimum time.",

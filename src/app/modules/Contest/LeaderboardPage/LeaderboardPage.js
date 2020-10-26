@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+import { useHistory, useParams } from 'react-router-dom';
 
 import { getLeaderboard } from '../Contest.service';
 import { formatDate } from '../../../../config/Utils';
@@ -12,7 +13,9 @@ const LeaderboardPage = () => {
 
     const DEFAULT_PAGE = 1;
     const DEFAUT_PAGE_SIZE = 100;
+
     const params = useParams();
+    const history = useHistory();
     const [title, setTitle] = useState("");
     const [leaderboard, setLeaderboard] = useState([]);
 
@@ -35,11 +38,18 @@ const LeaderboardPage = () => {
             });
     };
 
+    const gotoPlay = () => {
+        history.push(`/contest/${params.id}`);
+    };
+
     return (
         <AppContainer>
             <div className="leaderboard-wrapper">
                 <article className="leaderboard-card-wrapper">
-                    <h1 className="title">{`${title} Leaderboard`}</h1>
+                    <div className="card-header-wrapper">
+                        <h1 className="title">{`${title} Leaderboard`}</h1>
+                        <Button variant="contained" color="primary" onClick={gotoPlay}>Play</Button>
+                    </div>
                     <ul className="leaderboard-list-wrapper">
                         <li className="list-item-container">
                             <span className="rank">Rank</span>

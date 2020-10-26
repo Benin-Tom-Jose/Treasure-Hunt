@@ -124,24 +124,28 @@ const Home = () => {
                 <section className="section-hero">
                 </section>
 
-                <section className="section-contest">
-                    <h1 className="section-title">Contests</h1>
-                    <Carousel settings={carouselSettings} className="carousel-wrapper">
-                        {
-                            contests &&
-                            contests.map(contest =>
-                                <ContestCard
-                                    key={contest._id}
-                                    id={contest._id}
-                                    title={contest.contestName}
-                                    start={contest.startDate}
-                                    onPlayClick={playClickHandler}
-                                    onLearderboardClick={leaderboardClickHandler}
-                                />
-                            )
-                        }
-                    </Carousel>
-                </section>
+                {
+                    contests &&
+                    contests.length > 0 &&
+                    <section className="section-contest">
+                        <h1 className="section-title">Contests</h1>
+                        <Carousel settings={carouselSettings} className="carousel-wrapper">
+                            {
+                                contests &&
+                                contests.map(contest =>
+                                    <ContestCard
+                                        key={contest._id}
+                                        id={contest._id}
+                                        title={contest.contestName}
+                                        start={contest.startDate}
+                                        onPlayClick={playClickHandler}
+                                        onLearderboardClick={leaderboardClickHandler}
+                                    />
+                                )
+                            }
+                        </Carousel>
+                    </section>
+                }
 
                 <section className="section-rules">
                     <h1 className="section-title">Rules and Regulations</h1>

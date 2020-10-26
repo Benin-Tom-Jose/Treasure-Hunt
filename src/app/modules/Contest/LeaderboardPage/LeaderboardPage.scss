@@ -35,12 +35,18 @@
             padding: 3rem 4rem;
         }
 
-        .title {
-            font-size: $fs-xl;
-            font-weight: $fw-bold;
-            letter-spacing: 0.25rem;
-            color: $clr-light-100;
-            text-transform: capitalize;
+        .card-header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .title {
+                font-size: $fs-xl;
+                font-weight: $fw-bold;
+                letter-spacing: 0.25rem;
+                color: $clr-light-100;
+                text-transform: capitalize;
+            }
         }
 
         .leaderboard-list-wrapper {
