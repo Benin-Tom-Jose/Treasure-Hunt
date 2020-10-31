@@ -144,6 +144,7 @@ const Home = () => {
                                     <ContestCard
                                         key={contest._id}
                                         id={contest._id}
+                                        img={contest.img}
                                         title={contest.contestName}
                                         start={contest.startDate}
                                         started={contest.started}

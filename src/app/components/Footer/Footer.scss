@@ -15,6 +15,9 @@
 
     .copyright-container {
         color: #878787;
+        letter-spacing: 0.1rem;
+        font-size: $fs-md;
+        font-family: monospace;
     }
 
     .highlight-container {
@@ -44,6 +47,8 @@
 
         .creators {
             color: $clr-primary-main;
+            letter-spacing: 0.25rem;
+            font-family: cursive;
         }
     }
 }
