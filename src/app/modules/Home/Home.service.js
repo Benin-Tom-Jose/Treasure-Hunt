@@ -8,7 +8,7 @@ export const getActiveContests = () => {
 };
 
 export const getContestRules = () => {
-    let url = ApiUrl.getUrl("getContestRules");
+    // let url = ApiUrl.getUrl("getContestRules");
 
     // return Api.get(url);
     return Promise.resolve(CONTEST_RULES);

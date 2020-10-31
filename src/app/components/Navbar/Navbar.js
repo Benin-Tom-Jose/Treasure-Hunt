@@ -46,7 +46,29 @@ const Navbar = () => {
         else {
             dispatch(setIsLoginModalOpen(true));
         }
+        handleDrawerState(false);
     };
+
+    const handleScroll = (pathId) => {
+        handleDrawerState(false)
+        if (history.location.pathname !== "/") {
+            history.push("/");
+            setTimeout(() => {
+                scrollTo(document.getElementById(pathId));
+            }, 1000);
+        }
+        else {
+            scrollTo(document.getElementById(pathId));
+        }
+    };
+
+    const scrollTo = (element) => {
+        window.scroll({
+            behavior: 'smooth',
+            left: 0,
+            top: element ? element.offsetTop : null
+        });
+    }
 
     return (
         <>
@@ -74,9 +96,9 @@ const Navbar = () => {
                     </Hidden>
                     <Hidden smDown>
                         <ol className="navlist-container">
-                            <li className="nav-item">Contest</li>
-                            <li className="nav-item">Rules</li>
-                            <li className="nav-item">Contact</li>
+                            <li className="nav-item" onClick={() => handleScroll("contests")}>Contests</li>
+                            <li className="nav-item" onClick={() => handleScroll("rules")}>Rules</li>
+                            <li className="nav-item" onClick={() => handleScroll("contact")}>Contact</li>
                             <li className="nav-item" onClick={handleAuth}>{isAuthenticated ? 'Logout' : 'Login'}</li>
                         </ol>
                     </Hidden>
@@ -102,9 +124,9 @@ const Navbar = () => {
                         </IconButton>
                     </header>
                     <ol className="navlist-container">
-                        <li className="nav-item">Contest</li>
-                        <li className="nav-item">Rules</li>
-                        <li className="nav-item">Contact</li>
+                        <li className="nav-item" onClick={() => handleScroll("contests")}>Contests</li>
+                        <li className="nav-item" onClick={() => handleScroll("rules")}>Rules</li>
+                        <li className="nav-item" onClick={() => handleScroll("contact")}>Contact</li>
                         <li className="nav-item" onClick={handleAuth}>{isAuthenticated ? 'Logout' : 'Login'}</li>
                     </ol>
                 </div>
