@@ -2,11 +2,17 @@ FROM node:12.2.0-alpine as react_build
 #also say 
 WORKDIR /app
 #copy the react app to the container
-COPY . /app/ 
+COPY package.json ./
 
 #prepare the container for building react 
 RUN npm install --silent
-RUN npm install react-scripts@3.0.1 -g --silent 
+RUN npm install react-scripts@3.0.1 -g --silent
+
+COPY ./nginx ./nginx
+COPY .env ./
+COPY ./public ./public
+COPY ./src ./src
+
 RUN npm run build 
 
 #prepare nginx

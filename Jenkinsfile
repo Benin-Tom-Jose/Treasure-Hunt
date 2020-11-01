@@ -26,8 +26,8 @@ pipeline{
                                     sshCommand remote: remote, command: '''cd treasure-hunt-frontend/ ;
                                      git pull origin master ;
                                      docker build -t treasure_hunt-frontend . ;
-                                     docker rm -f treasure_hunt-app ;
-                                     docker run -d --name treasure_hunt-app -p 8080:80 treasure_hunt-frontend ;
+                                     docker rm -f treasure_hunt-app || true ;
+                                     docker run -d --name treasure_hunt-app -p 80:80 treasure_hunt-frontend ;
                                      '''
                                     }
                               }
