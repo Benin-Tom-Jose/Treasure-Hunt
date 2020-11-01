@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSnackbar } from 'notistack';
 import { useHistory } from 'react-router-dom';
 
 import Carousel from '../../components/Carousel/Carousel';
@@ -47,6 +48,7 @@ const DEFAULT_CAROUSEL_SETTINGS = {
 const Home = () => {
 
     const history = useHistory();
+    const { enqueueSnackbar } = useSnackbar();
 
     const [contests, setContests] = useState([]);
     const [rules, setRules] = useState([]);
@@ -100,8 +102,8 @@ const Home = () => {
                 setContests(contestList);
                 setCarouselSettings(getCarouselSettings(contestList.length));
             })
-            .catch(err => {
-                console.log(err);
+            .catch(error => {
+                enqueueSnackbar(JSON.stringify(error), { variant: 'error' });
             });
     }
 
@@ -110,8 +112,8 @@ const Home = () => {
             .then(rules => {
                 setRules(rules);
             })
-            .catch(err => {
-                console.log(err);
+            .catch(error => {
+                enqueueSnackbar(JSON.stringify(error), { variant: 'error' });
             });
     }
 

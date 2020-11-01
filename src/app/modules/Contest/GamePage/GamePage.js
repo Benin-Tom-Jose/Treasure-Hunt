@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSnackbar } from 'notistack';
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Tab, Tabs, TextField } from '@material-ui/core';
 
@@ -37,6 +38,8 @@ const GamePage = () => {
 
     const params = useParams();
     const history = useHistory();
+    const { enqueueSnackbar } = useSnackbar();
+
     const [answer, setAnswer] = useState("");
     const [showResult, setShowResult] = useState(false);
     const [helperText, setHelperText] = useState("");
@@ -56,7 +59,7 @@ const GamePage = () => {
                 setCurrentQuestion(response);
             })
             .catch(error => {
-                console.log(error);
+                enqueueSnackbar(JSON.stringify(error), { variant: 'error' });
             });
     };
 
@@ -109,7 +112,7 @@ const GamePage = () => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                enqueueSnackbar(JSON.stringify(error), { variant: 'error' });
                 setAnswer("");
             });
     };
@@ -183,7 +186,7 @@ const GamePage = () => {
                                         <div className="item-container">
                                             <h6 className="title">{currentQuestion && currentQuestion.question}</h6>
                                             {
-                                                currentQuestion &&
+                                                currentQuestion && currentQuestion.imageUrl &&
                                                 <img
                                                     src={currentQuestion.imageUrl}
                                                     className="media"
@@ -204,7 +207,7 @@ const GamePage = () => {
                                                         <div className="item-container" key={clue.number}>
                                                             <h6 className="title">{`${index + 1}. ${clue.clueBody}`}</h6>
                                                             {
-                                                                currentQuestion &&
+                                                                currentQuestion && clue.image &&
                                                                 <img
                                                                     src={clue.image}
                                                                     className="media"

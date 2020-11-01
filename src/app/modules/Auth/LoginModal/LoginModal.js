@@ -1,5 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+import { useSnackbar } from 'notistack';
 import GoogleLogin from 'react-google-login';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,30 +18,36 @@ const LoginModal = () => {
 
     const history = useHistory();
     const dispatch = useDispatch();
+    const { enqueueSnackbar } = useSnackbar();
     const nextUrl = useSelector(state => state.AppReducer.nextUrl);
     const isModalOpen = useSelector(state => state.AuthReducer.isLoginModalOpen);
 
     const responseGoogle = (token) => {
         let tokenId = token && token.tokenId ? token.tokenId : null;
 
-        getGoogleAccessToken(tokenId)
-            .then(response => {
-                let accessToken = response.accessToken
-                let refreshToken = response.refreshToken
-                let googleIdToken = tokenId;
-                setToken(accessToken, refreshToken, googleIdToken);
-                dispatch(setGoogleToken(googleIdToken));
-                dispatch(setAccessToken(accessToken));
-                dispatch(setRefreshToken(refreshToken));
-                if (nextUrl) {
-                    history.push(nextUrl);
-                }
-                handleModalClose();
-                history.push(history.location.pathname);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        if (tokenId) {
+            getGoogleAccessToken(tokenId)
+                .then(response => {
+                    let accessToken = response.accessToken
+                    let refreshToken = response.refreshToken
+                    let googleIdToken = tokenId;
+                    setToken(accessToken, refreshToken, googleIdToken);
+                    dispatch(setGoogleToken(googleIdToken));
+                    dispatch(setAccessToken(accessToken));
+                    dispatch(setRefreshToken(refreshToken));
+                    if (nextUrl) {
+                        history.push(nextUrl);
+                    }
+                    handleModalClose();
+                    history.push(history.location.pathname);
+                })
+                .catch(error => {
+                    enqueueSnackbar(JSON.stringify(error), { variant: 'error' });
+                });
+        }
+        else {
+            enqueueSnackbar(token.error, { variant: 'error' });
+        }
     };
 
     const handleModalClose = () => {

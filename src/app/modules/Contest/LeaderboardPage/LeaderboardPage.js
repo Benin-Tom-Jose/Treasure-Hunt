@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSnackbar } from 'notistack';
 import { Button } from '@material-ui/core';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ const LeaderboardPage = () => {
     const params = useParams();
     const history = useHistory();
     const [title, setTitle] = useState("");
+    const { enqueueSnackbar } = useSnackbar();
     const [leaderboard, setLeaderboard] = useState([]);
 
     useEffect(() => {
@@ -33,8 +35,8 @@ const LeaderboardPage = () => {
                 }
                 setLeaderboard(res.leaderBoard);
             })
-            .catch(err => {
-                console.log(err);
+            .catch(error => {
+                enqueueSnackbar(JSON.stringify(error), { variant: 'error' });
             });
     };
 
