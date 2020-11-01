@@ -184,7 +184,7 @@ const GamePage = () => {
                                     {
                                         currentTab === TAB_QUESTION &&
                                         <div className="item-container">
-                                            <h6 className="title">{currentQuestion && currentQuestion.question}</h6>
+                                            <h6 className="title">{currentQuestion && currentQuestion.question || ""}</h6>
                                             {
                                                 currentQuestion && currentQuestion.imageUrl &&
                                                 <img
@@ -205,7 +205,7 @@ const GamePage = () => {
                                                     currentQuestion.clues.length > 0 ?
                                                     currentQuestion.clues.map((clue, index) =>
                                                         <div className="item-container" key={clue.number}>
-                                                            <h6 className="title">{`${index + 1}. ${clue.clueBody}`}</h6>
+                                                            <h6 className="title">{`${index + 1}. ${clue.clueBody || ""}`}</h6>
                                                             {
                                                                 currentQuestion && clue.image &&
                                                                 <img
