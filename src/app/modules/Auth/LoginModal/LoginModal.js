@@ -65,6 +65,7 @@ const LoginModal = () => {
                     <Icon>close</Icon>
                 </IconButton>
                 <DialogContent className="modal-content-container">
+                    <h1 className="header">Treasure Hunt</h1>
                     <GoogleLogin
                         clientId="238080994627-h3gm4bjd7b617peas272a3t72eaomsbi.apps.googleusercontent.com"
                         buttonText="Login"
@@ -72,6 +73,7 @@ const LoginModal = () => {
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
+                    <p className="content">Sign in with Litmus7 account.</p>
                 </DialogContent>
             </div>
         </Dialog>

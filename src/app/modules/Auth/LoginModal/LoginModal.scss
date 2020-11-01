@@ -35,10 +35,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
             flex: 1;
+
+            .header {
+                color: $clr-dark-100;
+                font-size: $fs-xl;
+                margin-bottom: 4rem;
+                text-shadow: 1px 1px $clr-primary-main;
+                letter-spacing: 0.25rem;
+            }
+
+            .content {
+                font-size: $fs-xs;
+                font-weight: $fw-bold;
+                margin-top: 3rem;
+                letter-spacing: 0.1rem;
+            }
 
             > button {
                 background-color: $clr-primary-main !important;
+                outline: none;
 
                 > div {
                     display: flex;
@@ -46,6 +63,7 @@
 
                 > span {
                     color: $clr-light-100;
+                    letter-spacing: 0.1rem;
                 }
             }
         }
