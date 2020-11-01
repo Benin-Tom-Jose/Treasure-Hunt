@@ -62,6 +62,10 @@ const GamePage = () => {
 
     const handleTabChange = (event, value) => {
         setCurrentTab(value);
+        if (value === TAB_CLUE) {
+            let contestId = params.id;
+            getQuestion(contestId);
+        }
     };
 
     const handleAnswerChange = (event) => {
@@ -140,7 +144,6 @@ const GamePage = () => {
     return (
         <AppContainer>
             <div className="game-page-wrapper">
-
                 {
                     currentQuestion && currentQuestion.lastQuestion ?
                         <div className="last-question-wrapper">
@@ -210,7 +213,7 @@ const GamePage = () => {
                                                             }
                                                         </div>
                                                     ) :
-                                                    <div className="empty">No clues revealed yet.</div>
+                                                    <div className="empty">Clues will be released shortly.</div>
                                             }
                                         </>
                                     }
