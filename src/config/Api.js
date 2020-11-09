@@ -30,6 +30,8 @@ const responseSuccessInterceptor = (response) => {
 const responseFailureInterceptor = (error) => {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
+    localStorage.clear();
+    window.location.reload();
     Store.dispatch(decrementApiStack());
     return Promise.reject(error);
 };
