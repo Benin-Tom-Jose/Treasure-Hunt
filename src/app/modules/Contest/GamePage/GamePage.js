@@ -118,7 +118,10 @@ const GamePage = () => {
     };
 
     const handleNext = (state) => {
-        state && getQuestion(params.id);
+        if (state) {
+            getQuestion(params.id);
+            setCurrentTab(TAB_QUESTION);
+        }
         setAnswer("");
         setShowResult(false);
         setIsSuccessResult(false);
