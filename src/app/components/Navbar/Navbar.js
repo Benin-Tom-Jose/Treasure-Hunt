@@ -28,6 +28,7 @@ const Navbar = () => {
 
     const trigger = useScrollTrigger({
         disableHysteresis: true,
+        threshold: 10
     });
 
     const handleDrawerState = (isOpen) => {

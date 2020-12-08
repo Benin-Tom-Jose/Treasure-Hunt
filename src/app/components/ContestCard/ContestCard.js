@@ -13,7 +13,7 @@ const ContestCard = (props) => {
         <Card component="article" className="contest-card-wrapper">
             <CardMedia
                 className="media"
-                image={props.img ? props.img : getAsset("bg-landscape-2.jpg", "img")}
+                image={props.img ? props.img : getAsset("bg-landscape-7.jpg", "img")}
             />
             <CardContent className="card-content-wrapper">
                 <h1 className="title">{props.title}</h1>

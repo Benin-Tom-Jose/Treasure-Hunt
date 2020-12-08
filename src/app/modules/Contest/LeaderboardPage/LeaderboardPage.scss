@@ -16,8 +16,9 @@
         left: 0;
         height: 100%;
         width: 100%;
-        background-image: url("../../../../assets/img/bg-landscape-2.jpg");
-        filter: blur(0.25rem);
+        background-image: url("../../../../assets/img/bg-landscape-5.jpg");
+        background-size: cover;
+        filter: brightness(0.9);
         z-index: -1;
     }
 

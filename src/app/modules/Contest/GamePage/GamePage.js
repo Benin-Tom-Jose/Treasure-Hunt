@@ -75,6 +75,11 @@ const GamePage = () => {
         setAnswer(event.target.value);
     };
 
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        handleSubmit();
+    }
+
     const handleSubmit = (event) => {
         if (validate()) {
             let reqBody = {
@@ -229,7 +234,7 @@ const GamePage = () => {
                                     <div className="answer-container">
                                         {
                                             !showResult ?
-                                                <div className="form-container">
+                                                <form className="form-container" onSubmit={handleFormSubmit}>
                                                     <TextField
                                                         fullWidth
                                                         value={answer}
@@ -249,7 +254,7 @@ const GamePage = () => {
                                                     >
                                                         Submit
                                                     </Button>
-                                                </div> :
+                                                </form> :
                                                 <div className="result-container">
                                                     <h1 className="title">{isSuccessResult ? getComplimentTitle() : getErrorTitle()}</h1>
                                                     <p className="content">{isSuccessResult ? getComplimentMessage() : getErrorMessage()}</p>
