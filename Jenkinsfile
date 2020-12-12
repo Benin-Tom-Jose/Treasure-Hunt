@@ -14,11 +14,11 @@ pipeline{
             
             steps{
                 
-                withCredentials([sshUserPrivateKey(credentialsId: 'ubuntu-benin', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'incognito', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
                                   script{
                                     def remote = [:]
                                     remote.name = "ubuntu"
-                                    remote.host = "3.22.188.95"
+                                    remote.host = "65.0.247.253"
                                     remote.allowAnyHosts = true
                                     remote.user = ubuntu
                                     remote.identityFile = identity

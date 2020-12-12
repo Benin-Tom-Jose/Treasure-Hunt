@@ -5,7 +5,7 @@
     padding-top: 5rem;
     position: relative;
     background: $clr-dark-100;
-    background-image: url("../../../../assets/img/bg-landscape-6.jpg");
+    background-image: url("../../../../assets/img/bg-landscape-4.jpg");
     background-size: contain;
     z-index: 0;
 
@@ -114,7 +114,7 @@
             }
         }
         .question-container {
-            background: rgba($clr-dark-100, 0.8);
+            background: rgba($clr-dark-100, 0.95);
             border-radius: 0.5rem;
             overflow: hidden;
             display: flex;

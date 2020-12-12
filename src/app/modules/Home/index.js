@@ -130,7 +130,7 @@ const Home = () => {
             <div className="home-page-wrapper">
 
                 <section className="section-hero">
-                    <h1 className="title">Treasure Hunt 2020</h1>
+                    <h1 className="title">Incognito</h1>
                     <h5 className="tagline">The Hunt has begun</h5>
                 </section>
 
