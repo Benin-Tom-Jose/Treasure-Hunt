@@ -1,5 +1,5 @@
 // export const BASE_URL = "http://localhost:8081/";
-export const BASE_URL = "http://15.206.15.125:8081/";
+export const BASE_URL = "http://incognito.litmus7.com:8081/";
 
 const ENDPOINTS = {
     googleLogin: "google/login",
