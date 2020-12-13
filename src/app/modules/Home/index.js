@@ -160,7 +160,7 @@ const Home = () => {
                 }
 
                 <section className="section-rules" id="rules">
-                    <h1 className="section-title">Rules and Regulations</h1>
+                    <h1 className="section-title">Rules are clues</h1>
                     <ol className="rules-wrapper">
                         {
                             rules &&
