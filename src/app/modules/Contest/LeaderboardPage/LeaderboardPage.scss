@@ -47,6 +47,17 @@
                 letter-spacing: 0.25rem;
                 color: $clr-light-100;
                 text-transform: capitalize;
+                margin: 0;
+            }
+        }
+
+        .MuiPagination-root {
+            margin: 1rem 0;
+            .MuiPaginationItem-root {
+                color: $clr-light-100;
+                .MuiSvgIcon-root {
+                    fill: $clr-light-100;
+                }
             }
         }
 
@@ -54,7 +65,6 @@
             margin: 0;
             padding: 0;
             list-style: none;
-            margin-top: 3rem;
 
             .list-item-container {
                 padding: 1.5rem 2rem;
@@ -86,6 +96,8 @@
 
                 > span {
                     padding: 0 0.5rem;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
 
                     &.rank {
                         flex: 2;
@@ -103,6 +115,15 @@
                         flex: 5;
                     }
                 }
+            }
+
+            .empty-container {
+                min-height: 20rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $clr-transparent-light-300;
+                font-size: $fs-sm;
             }
         }
     }
