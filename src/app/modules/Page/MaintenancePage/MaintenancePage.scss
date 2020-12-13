@@ -1,0 +1,190 @@
+@import "../../../../config/Styles.scss";
+
+.maintenance-page-wrapper {
+    min-height: 100%;
+    background: rgb(103, 66, 230);
+    background: linear-gradient(135deg, rgba(103, 66, 230, 1) 35%, rgba(114, 68, 237, 1) 100%);
+    color: $clr-light-100;
+
+    .error-image {
+        max-width: 720px;
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        > h1 {
+            font-size: 12rem;
+            margin: 5rem 2rem 5rem 2rem;
+            
+            @media (min-width: 600px) {
+                margin: 15rem 2rem 5rem 2rem;
+            }
+        }
+
+        .icons {
+            position: relative;
+            margin: 0;
+            width: 71px;
+            height: 63px;
+            margin-bottom: 20px;
+        }
+
+        .icon-gear:before {
+            font-family: "Material Icons";
+            content: "\f013";
+            content: "\e8b8";
+        }
+
+        .icon-spin {
+            position: absolute;
+        }
+
+        .one {
+            display: flex;
+            top: 50%;
+            margin-top: -27px;
+            left: -5px;
+            font-size: 55px;
+        }
+
+        .two {
+            display: flex;
+            font-size: 32px;
+            right: 0;
+            top: 0;
+        }
+
+        .three {
+            display: flex;
+            font-size: 32px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .right {
+            -moz-animation: spin 2s infinite linear;
+            -o-animation: spin 2s infinite linear;
+            -webkit-animation: spin 2s infinite linear;
+            animation: spin 2s infinite linear;
+        }
+
+        .left {
+            -moz-animation: spin-left 2s infinite linear;
+            -o-animation: spin-left 2s infinite linear;
+            -webkit-animation: spin-left 2s infinite linear;
+            animation: spin-left 2s infinite linear;
+        }
+
+        .slow {
+            -moz-animation-duration: 3s;
+            -o-animation-duration: 3s;
+            -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(359deg);
+            }
+        }
+        @-moz-keyframes spin {
+            0% {
+                -moz-transform: rotate(0deg);
+            }
+            100% {
+                -moz-transform: rotate(359deg);
+            }
+        }
+        @-ms-keyframes spin {
+            0% {
+                -ms-transform: rotate(0deg);
+            }
+            100% {
+                -ms-transform: rotate(359deg);
+            }
+        }
+        @-o-keyframes spin {
+            0% {
+                -o-transform: rotate(0deg);
+            }
+            100% {
+                -o-transform: rotate(359deg);
+            }
+        }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(359deg);
+            }
+        }
+
+        @-webkit-keyframes spin-left {
+            0% {
+                -webkit-transform: rotate(359deg);
+            }
+            100% {
+                -webkit-transform: rotate(0deg);
+            }
+        }
+        @-moz-keyframes spin-left {
+            0% {
+                -moz-transform: rotate(359deg);
+            }
+            100% {
+                -moz-transform: rotate(0deg);
+            }
+        }
+        @-ms-keyframes spin-left {
+            0% {
+                -ms-transform: rotate(359deg);
+            }
+            100% {
+                -ms-transform: rotate(0deg);
+            }
+        }
+        @-o-keyframes spin-left {
+            0% {
+                -o-transform: rotate(359deg);
+            }
+            100% {
+                -o-transform: rotate(0deg);
+            }
+        }
+        @keyframes spin-left {
+            0% {
+                transform: rotate(359deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    }
+
+    .error-msg-container {
+        margin: 18px auto 30px auto;
+        max-width: 800px;
+        width: 80%;
+        text-align: center;
+        > h1 {
+            font-size: 5rem;
+            // max-width: 56rem;
+            margin: auto auto 48px;
+        }
+
+        > p {
+            font-size: $fs-sm;
+
+            &:last-child {
+                padding-bottom: 5rem;
+            }
+        }
+    }
+}

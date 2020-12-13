@@ -10,10 +10,12 @@ const Routes = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Home} />
+                {/* <Route exact path="/" component={Home} /> */}
                 {/* <Route path="/auth/:authType?" component={Auth} /> */}
                 <Route path="/page/:pageType?" component={Page} />
-                <Route path="/contest" component={Contest} />
+                {/* <Route path="/contest" component={Contest} /> */}
+                <Redirect to="/page/launch" />
+                <Redirect to="/page/maintenance" />
                 <Redirect to="/page/404" />
             </Switch>
         </BrowserRouter>
