@@ -16,15 +16,18 @@ const Contest = () => {
     isLaunched.current = () => {
         let launchDate = window.launchDate || LAUNCH_DATETIME;
         let difference = +new Date(launchDate) - +new Date();
-
-        if (difference > 0) {
+        if (difference > 1000) {
             return true;
         } else {
             return false;
         }
     };
 
-    
+    useEffect(() => {
+        if (isLaunched.current()) {
+            history.push('/page/launch');
+        }
+    }, []);
 
 
     return (

@@ -63,7 +63,7 @@ const Home = () => {
         let launchDate = window.launchDate || LAUNCH_DATETIME;
         let difference = +new Date(launchDate) - +new Date();
 
-        if (difference > 0) {
+        if (difference > 1000) {
             return true;
         } else {
             return false;
@@ -71,9 +71,9 @@ const Home = () => {
     };
 
     useEffect(() => {
-        // if(isLaunched.current()){
-        //     history.push('/page/launch');
-        // }
+        if(isLaunched.current()){
+            history.push('/page/launch');
+        }
         getContests.current();
         getRules.current();
     }, []);

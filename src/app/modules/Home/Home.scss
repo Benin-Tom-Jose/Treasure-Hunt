@@ -218,6 +218,7 @@
                     }
 
                     > a {
+                        color: $clr-primary-main;
                         display: flex;
                         &:first-child{
                             margin-right: 1rem;
