@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Tab, Tabs, TextField } from '@material-ui/core';
@@ -50,10 +50,11 @@ const GamePage = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         let contestId = params.id;
-        getQuestion(contestId);
+        getQuestion.current(contestId);
     }, [params, params.id]);
 
-    const getQuestion = (contestId) => {
+    const getQuestion = useRef(() => { });
+    getQuestion.current = (contestId) => {
         getCurrentQuestion(contestId)
             .then(response => {
                 setCurrentQuestion(response);
@@ -67,7 +68,7 @@ const GamePage = () => {
         setCurrentTab(value);
         if (value === TAB_CLUE) {
             let contestId = params.id;
-            getQuestion(contestId);
+            getQuestion.current(contestId);
         }
     };
 
@@ -124,7 +125,7 @@ const GamePage = () => {
 
     const handleNext = (state) => {
         if (state) {
-            getQuestion(params.id);
+            getQuestion.current(params.id);
             setCurrentTab(TAB_QUESTION);
         }
         setAnswer("");
@@ -157,7 +158,7 @@ const GamePage = () => {
         let stmtArray = `${stmt}`.split("\n");
 
         if (stmtArray.length > 1) {
-            template = stmtArray.map(eachStmt => <div>{eachStmt}</div>);
+            template = stmtArray.map((eachStmt, index) => <div key={index}>{eachStmt}</div>);
         } else {
             template = stmtArray[0] || "";
         }
@@ -274,7 +275,7 @@ const GamePage = () => {
                                                         currentQuestion && currentQuestion.lastQuestion && isSuccessResult &&
                                                         <>
                                                             <p className="more-questions">Stay tuned for more exciting questions.</p>
-                                                            <h1 className="emoji">😜</h1>
+                                                            <h1 className="emoji"><span role="img" aria-label="">😜</span></h1>
                                                         </>
                                                     }
                                                     <Button
@@ -289,7 +290,7 @@ const GamePage = () => {
                                         }
                                     </div>
                                     <div className="notification-container">
-                                        <h1 className="title">😨 Stuck on a level?</h1>
+                                        <h1 className="title"><span role="img" aria-label="">😨</span> Stuck on a level?</h1>
                                         <p className="description">
                                             Don't lose hope. Clues will be updated on regular intervals to make the hunt fun.
                                 </p>

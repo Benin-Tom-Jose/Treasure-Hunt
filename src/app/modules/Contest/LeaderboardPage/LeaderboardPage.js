@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { Button } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination';
@@ -26,11 +26,12 @@ const LeaderboardPage = () => {
 
     useEffect(() => {
         let contestId = params.id;
-        getLeaderboardList(contestId);
+        getLeaderboardList.current(contestId);
         window.scrollTo(0, 0);
     }, [params.id]);
 
-    const getLeaderboardList = (id, page = DEFAULT_PAGE, limit = DEFAUT_PAGE_SIZE) => {
+    const getLeaderboardList = useRef(()=>{});
+    getLeaderboardList.current = (id, page = DEFAULT_PAGE, limit = DEFAUT_PAGE_SIZE) => {
         getLeaderboard(id, page, limit)
             .then(res => {
                 if (res && res.contestName) {
@@ -52,7 +53,7 @@ const LeaderboardPage = () => {
         setOnPage(currentPage);
         let contestId = params.id;
         if (contestId) {
-            getLeaderboardList(contestId, currentPage);
+            getLeaderboardList.current(contestId, currentPage);
         }
     };
 
