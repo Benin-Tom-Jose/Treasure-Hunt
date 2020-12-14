@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSnackbar } from 'notistack';
+import { Icon } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 import Carousel from '../../components/Carousel/Carousel';
@@ -55,8 +56,8 @@ const Home = () => {
     const [carouselSettings, setCarouselSettings] = useState(DEFAULT_CAROUSEL_SETTINGS);
 
     useEffect(() => {
-        getContests();
-        getRules();
+        getContests.current();
+        getRules.current();
     }, []);
 
     const getCarouselSettings = (slideLength) => {
@@ -96,7 +97,8 @@ const Home = () => {
         };
     }
 
-    const getContests = () => {
+    const getContests = useRef(() => { });
+    getContests.current = () => {
         getActiveContests()
             .then(contestList => {
                 setContests(contestList);
@@ -107,7 +109,8 @@ const Home = () => {
             });
     }
 
-    const getRules = () => {
+    const getRules = useRef(() => { });
+    getRules.current = () => {
         getContestRules()
             .then(rules => {
                 setRules(rules);
@@ -173,7 +176,24 @@ const Home = () => {
 
                 <section className="section-contact" id="contact">
                     <h1 className="section-title">Contact Us</h1>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7858.169326450383!2d76.36234058108714!3d10.009865432153964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bf36a6e02a19%3A0xa6b354aa42298fbb!2sLitmus7%20Systems%20Consulting!5e0!3m2!1sen!2sin!4v1603022524595!5m2!1sen!2sin" title="map" frameBorder="0" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
+                    <div className="contact-us-wrapper">
+                        <h5 className="title">Found a Bug<span role="img" aria-label="">🐞</span>?</h5>
+                        <p className="content">Feel free to contact us. Message us on Whatsapp or call us at</p>
+                        <p className="content">
+                            <span>
+                                <a href="mailto:sebin.vincent@litmus7.com"><Icon>email</Icon></a>
+                                <a href="tel:91 8086781913">Sebin : +91 8086781913</a>
+                            </span>
+                            <span>
+                                <a href="mailto:benin.jose@litmus7.com"><Icon>email</Icon></a>
+                                <a href="tel: 91 9633569522">Benin : +91 9633569522</a>
+                            </span>
+                        </p>
+                        <div className="highlight-container">
+                            <span className="label">Made with <Icon className="icon">favorite</Icon></span>
+                            <span className="creators">@Litmus7</span>
+                        </div>
+                    </div>
                 </section>
             </div>
         </AppContainer>

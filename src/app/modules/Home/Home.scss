@@ -88,6 +88,12 @@
             text-shadow: 2px 2px $clr-primary-main;
             font-size: 2rem;
 
+            position: absolute;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+
             @media (min-width: 600px) {
                 font-size: 3rem;
             }
@@ -178,6 +184,92 @@
     .section-contact {
         background: $clr-transparent-dark-100;
         padding: 8rem 0;
+        padding-bottom: 0;
+
+        .contact-us-wrapper {
+            min-height: 30rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 1rem;
+
+            .title {
+                font-size: $fs-xl;
+                font-weight: $fw-bold;
+                margin: 2rem 0;
+            }
+            .content {
+                margin: 1rem 0;
+                font-size: $fs-md;
+                font-weight: $fw-semibold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                > span {
+                    margin-right: 5rem;
+                    display: flex;
+                    align-items: center;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    > a {
+                        display: flex;
+                        &:first-child{
+                            margin-right: 1rem;
+                        }
+
+                    }
+                }
+            }
+
+            .highlight-container {
+                display: flex;
+                // flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 5rem;
+                margin-top: 8rem;
+
+                .label {
+                    color: #878787;
+                    color: #000;
+                    display: flex;
+                    align-items: center;
+                    font-size: $fs-xl;
+                    font-weight: $fw-semibold;
+                    letter-spacing: 0.25rem;
+
+                    .icon {
+                        color: #e90606;
+                        font-size: 5rem;
+                        margin: 0.5rem;
+                        animation: pound 1s infinite;
+                        animation-direction: alternate;
+                    }
+
+                    @keyframes pound {
+                        to {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+
+                .creators {
+                    color: #878787;
+                    color: #000;
+                    // color: $clr-primary-main;
+                    letter-spacing: 0.25rem;
+                    font-family: cursive;
+                    font-size: $fs-xl;
+                    font-weight: $fw-bold;
+                }
+            }
+        }
 
         > iframe {
             height: 30rem;
