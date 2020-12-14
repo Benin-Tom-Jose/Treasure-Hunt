@@ -1,4 +1,4 @@
-const round = number => Math.round(number * 100) / 100;
+// const round = number => Math.round(number * 100) / 100;
 
 const monitorReducerEnhancer = createStore => (
     reducer,
@@ -6,12 +6,12 @@ const monitorReducerEnhancer = createStore => (
     enhancer
 ) => {
     const monitoredReducer = (state, action) => {
-        const start = performance.now();;
         const newState = reducer(state, action)
-        const end = performance.now();
-        const diff = round(end - start);
+        // const start = performance.now();;
+        // const end = performance.now();
+        // const diff = round(end - start);
 
-        console.log(`Reducer Process Time : ${diff} sec`);
+        // console.log(`Reducer Process Time : ${diff} sec`);
 
         return newState;
     }
