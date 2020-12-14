@@ -24,11 +24,7 @@ const Contest = () => {
         }
     };
 
-    useEffect(() => {
-        if (isLaunched.current()) {
-            history.push('/page/launch');
-        }
-    }, []);
+    
 
 
     return (

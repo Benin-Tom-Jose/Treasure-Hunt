@@ -71,9 +71,9 @@ const Home = () => {
     };
 
     useEffect(() => {
-        if(isLaunched.current()){
-            history.push('/page/launch');
-        }
+        // if(isLaunched.current()){
+        //     history.push('/page/launch');
+        // }
         getContests.current();
         getRules.current();
     }, []);
