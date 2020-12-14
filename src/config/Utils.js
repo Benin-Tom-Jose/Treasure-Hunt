@@ -68,3 +68,8 @@ export const isUserAuthenticated = () => {
     let isAuthenticated = getAccessToken() ? true : false;
     return isAuthenticated;
 };
+
+export const getLaunchDateTime = () => {
+    let launchDateTime = "12/16/2020 16:16";
+    return launchDateTime;
+};

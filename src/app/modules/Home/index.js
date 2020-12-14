@@ -3,6 +3,7 @@ import { useSnackbar } from 'notistack';
 import { Icon } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
+import { getLaunchDateTime } from '../../../config/Utils';
 import Carousel from '../../components/Carousel/Carousel';
 import ContestCard from '../../components/ContestCard/ContestCard';
 import { getActiveContests, getContestRules } from './Home.service';
@@ -55,7 +56,24 @@ const Home = () => {
     const [rules, setRules] = useState([]);
     const [carouselSettings, setCarouselSettings] = useState(DEFAULT_CAROUSEL_SETTINGS);
 
+    const LAUNCH_DATETIME = getLaunchDateTime();
+
+    const isLaunched = useRef(() => { });
+    isLaunched.current = () => {
+        let launchDate = window.launchDate || LAUNCH_DATETIME;
+        let difference = +new Date(launchDate) - +new Date();
+
+        if (difference > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
     useEffect(() => {
+        if(isLaunched.current()){
+            history.push('/page/launch');
+        }
         getContests.current();
         getRules.current();
     }, []);

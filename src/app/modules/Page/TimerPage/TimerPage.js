@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { getLaunchDateTime } from '../../../../config/Utils';
+
 import './TimerPage.scss';
 
 
 const TimerPage = () => {
     const history = useHistory();
     const [snowEl, setSnowEl] = useState();
+    const LAUNCH_DATETIME = getLaunchDateTime();
 
     useEffect(() => {
         setSnowEl(snow());
     }, [])
 
-    const calculateTimeLeft = (date = "12/16/2020 16:16") => {
+    const calculateTimeLeft = (date = LAUNCH_DATETIME) => {
         let launchDate = window.launchDate || date;
         let difference = +new Date(launchDate) - +new Date();
         let timeLeft = {};
@@ -167,7 +170,7 @@ const TimerPage = () => {
                         <div className="countdown">
                             {timerComponents.length ? timerComponents : <span>Time's up!</span>}
                         </div>
-                        <p>until INCOGNITO</p>
+                        <p>until <strong>INCOGNITO</strong></p>
                     </div>
                 </div>
             </section>

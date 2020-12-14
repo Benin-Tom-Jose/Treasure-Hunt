@@ -1,14 +1,35 @@
-import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
 import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 
 import GamePage from './GamePage/GamePage';
+import { getLaunchDateTime } from '../../../config/Utils';
 import LeaderboardPage from './LeaderboardPage/LeaderboardPage';
 
 
 const Contest = () => {
-
     const BASE_PATH = "/contest";
+    const history = useHistory();
+    const LAUNCH_DATETIME = getLaunchDateTime();
+
+    const isLaunched = useRef(() => { });
+    isLaunched.current = () => {
+        let launchDate = window.launchDate || LAUNCH_DATETIME;
+        let difference = +new Date(launchDate) - +new Date();
+
+        if (difference > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    useEffect(() => {
+        if (isLaunched.current()) {
+            history.push('/page/launch');
+        }
+    }, []);
+
 
     return (
         <Switch>
