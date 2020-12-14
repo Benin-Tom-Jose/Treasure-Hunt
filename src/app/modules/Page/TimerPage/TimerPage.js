@@ -166,7 +166,7 @@ const TimerPage = () => {
                 </div>
                 <div className="container">
                     <div className="counterWrapper">
-                        <p>Only</p>
+                        <p></p>
                         <div className="countdown">
                             {timerComponents.length ? timerComponents : <span>Time's up!</span>}
                         </div>
