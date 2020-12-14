@@ -133,6 +133,10 @@
     color: #fff;
     margin: 0 auto;
     background-color: #005b38;
+    background-color: #000;
+    background-image: url("https://wallpapercave.com/wp/iz2JBDS.jpg");
+    background-size: cover;
+    background-position: center;
     * {
         font-family: "Mountains of Christmas", cursive;
     }
@@ -174,19 +178,19 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(rgba(#fff, 0.3), transparent);
+        // background: radial-gradient(rgba(#fff, 0.3), transparent);
         pointer-events: none;
     }
     &:after {
         width: 90%;
         height: 90%;
-        border: 1px solid rgba(#fff, 0.1);
+        // border: 1px solid rgba(#fff, 0.1);
     }
     .decorations {
         pointer-events: none;
         .decoration {
             @include imagen(
-                "https://firebasestorage.googleapis.com/v0/b/fotos-3cba1.appspot.com/o/navidad%2Fdecoration.png?alt=media&token=201ed160-2a86-4b14-869f-85981e9ff5fb"
+                // "https://firebasestorage.googleapis.com/v0/b/fotos-3cba1.appspot.com/o/navidad%2Fdecoration.png?alt=media&token=201ed160-2a86-4b14-869f-85981e9ff5fb"
             );
             position: absolute;
             width: 500px;
@@ -246,7 +250,7 @@
             width: 430px;
             height: 155px;
             transform: translateX(-100%);
-            animation: santa__mov 15s linear infinite;
+            // animation: santa__mov 15s linear infinite;
             .santa {
                 position: absolute;
                 left: 0;
@@ -921,13 +925,17 @@
             position: relative;
             z-index: 1;
             p {
-                background-image: url(https://firebasestorage.googleapis.com/v0/b/fotos-3cba1.appspot.com/o/navidad%2Fpattern-2.jpg?alt=media&token=c3ebea10-d285-4b2a-846b-12154d670bf2);
-                background-color: #fff;
+                // background-image: url(https://firebasestorage.googleapis.com/v0/b/fotos-3cba1.appspot.com/o/navidad%2Fpattern-2.jpg?alt=media&token=c3ebea10-d285-4b2a-846b-12154d670bf2);
+                background-color: #038bff;
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 font-size: 100px;
                 font-size: 4rem;
+                text-shadow: -1px 2px 1px #fff;
+                > strong {
+                    color: red;
+                }
             }
             .countdown {
                 @include flex;
@@ -938,12 +946,13 @@
                     font-size: 200px;
                     font-size: 6rem;
                     line-height: 150px;
-                    background-image: url(https://firebasestorage.googleapis.com/v0/b/fotos-3cba1.appspot.com/o/navidad%2Fpattern-1.png?alt=media&token=e62eb3c2-bea0-49ae-a398-ab426f5605c1);
+                    // background-image: url(https://firebasestorage.googleapis.com/v0/b/fotos-3cba1.appspot.com/o/navidad%2Fpattern-1.png?alt=media&token=e62eb3c2-bea0-49ae-a398-ab426f5605c1);
                     background-color: #fff;
                     background-clip: text;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     text-shadow: 0 0 100px #fff;
+                    text-shadow: 1px 0px 3px #000, 1px 1px 0px #038bff;
                     &:not(:first-child) {
                         &:before {
                             content: ":";

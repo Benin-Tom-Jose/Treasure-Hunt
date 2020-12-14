@@ -82,9 +82,9 @@ const TimerPage = () => {
 
     return (
         <main className="timer-page-wrapper">
-            <iframe width="0" height="0" allow="autoplay" title="audio" style={{ "display": "none" }}
+            {/* <iframe width="0" height="0" allow="autoplay" title="audio" style={{ "display": "none" }}
                 src="https://www.youtube.com/embed/oo4UtaN9DHY?autoplay=1">
-            </iframe>
+            </iframe> */}
             <section className="countdownSection">
                 <div className="decorations">
                     <div className="decoration" data-pos="bottom left"></div>
