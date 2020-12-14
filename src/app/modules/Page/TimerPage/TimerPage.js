@@ -90,7 +90,7 @@ const TimerPage = () => {
                     <div className="decoration" data-pos="bottom left"></div>
                     <div className="decoration" data-pos="top right"></div>
                     {snowEl}
-                    <div className="santaWrapper">
+                    {/* <div className="santaWrapper">
                         <div className="santa">
                             <div className="hat">
                                 <div></div>
@@ -162,7 +162,7 @@ const TimerPage = () => {
                                 <div className="tail"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="container">
                     <div className="counterWrapper">
