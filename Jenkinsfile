@@ -14,11 +14,11 @@ pipeline{
             
             steps{
                 
-                withCredentials([sshUserPrivateKey(credentialsId: 'incognito', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ubuntu-benin', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
                                   script{
                                     def remote = [:]
                                     remote.name = "ubuntu"
-                                    remote.host = "65.0.247.253"
+                                    remote.host = "3.22.188.95"
                                     remote.allowAnyHosts = true
                                     remote.user = ubuntu
                                     remote.identityFile = identity
@@ -27,7 +27,7 @@ pipeline{
                                      git pull origin master ;
                                      docker build -t treasure_hunt-frontend . ;
                                      docker rm -f treasure_hunt-app || true ;
-                                     docker run -d --name treasure_hunt-app -p 80:80 treasure_hunt-frontend ;
+                                     docker run -d -v /etc/incognito/live/ssl:/etc/nginx/certs --name treasure_hunt-app -p 443:443 treasure_hunt-frontend ;
                                      '''
                                     }
                               }
