@@ -73,7 +73,17 @@ const GamePage = () => {
     };
 
     const handleAnswerChange = (event) => {
-        setAnswer(event.target.value);
+        let text = event.target.value.toLowerCase();
+        if (!text.match(/^[a-z0-9]+$/i)) {
+            setHelperText("No special characters allowed !!! Use only alpha-numeric characters.");
+            setTimeout(() => { setHelperText("") }, 3000);
+        }
+        else {
+            setAnswer(event.target.value.toLowerCase());
+        }
+        if(answer.length===1){
+            setAnswer(event.target.value.toLowerCase());
+        }
     };
 
     const handleFormSubmit = (event) => {
@@ -89,20 +99,22 @@ const GamePage = () => {
             };
             submitAnswer(reqBody)
         }
-        else {
-            setHelperText("Invalid input !!!");
-            setTimeout(() => { setHelperText("") }, 3000);
-        }
     };
 
     const validate = () => {
         let isValid = true;
-        if (answer.trim()) {
-            isValid = true
+
+        if (!answer.match(/^[a-z0-9]+$/i)) {
+            isValid = false;
+            setHelperText("No special characters allowed!!! Use only alpha-numeric characters !!!");
+            setTimeout(() => { setHelperText("") }, 3000);
         }
-        else {
-            isValid = false
+        if (!answer.trim()) {
+            isValid = false;
+            setHelperText("Invalid input !!!");
+            setTimeout(() => { setHelperText("") }, 3000);
         }
+
         return isValid;
     };
 

@@ -27,7 +27,7 @@ pipeline{
                                      git pull origin master ;
                                      docker build -t treasure_hunt-frontend . ;
                                      docker rm -f treasure_hunt-app || true ;
-                                     docker run -d -v /etc/incognito/live/ssl:/etc/nginx/certs --name treasure_hunt-app -p 443:443 treasure_hunt-frontend ;
+                                     docker run -d -v /etc/incognito/live/ssl:/etc/nginx/certs --name treasure_hunt-app -p 443:443 -p 80:80 treasure_hunt-frontend ;
                                      '''
                                     }
                               }
