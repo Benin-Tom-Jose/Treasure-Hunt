@@ -23,11 +23,11 @@ const Contest = () => {
         }
     };
 
-    useEffect(() => {
-        if (isLaunched.current()) {
-            history.push('/page/launch');
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (isLaunched.current()) {
+    //         history.push('/page/launch');
+    //     }
+    // }, []);
 
 
     return (
