@@ -77,7 +77,7 @@ const Navbar = () => {
                 <nav className={`navbar-container ${trigger ? 'navbar-mini' : ''}`}>
                     <div className="brand-container">
                         <img
-                            src={getAsset("logo-light-1.png", "img")}
+                            src={getAsset("logo-main.png", "img")}
                             alt="Treasure Hunt"
                             className="brand-logo"
                             onClick={handleLogoClick}

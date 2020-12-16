@@ -71,7 +71,7 @@ const Home = () => {
     };
 
     useEffect(() => {
-        if(isLaunched.current()){
+        if (isLaunched.current()) {
             history.push('/page/launch');
         }
         getContests.current();
@@ -186,7 +186,15 @@ const Home = () => {
                         {
                             rules &&
                             rules.map((rule, index) =>
-                                <li className="each-rule" key={index}>{rule}</li>
+                                <li className="each-rule" key={index}>
+                                    {
+                                        typeof rule === "string" ?
+                                            rule :
+                                            rule.map((eachSubRule, i) =>
+                                                <div key={i}>{eachSubRule}</div>
+                                            )
+                                    }
+                                </li>
                             )
                         }
                     </ol>
