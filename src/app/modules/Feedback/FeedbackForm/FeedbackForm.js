@@ -40,7 +40,7 @@ const FeedbackForm = () => {
         setFeedback(e.target.value);
     };
 
-    const validate = ({ rating }) => {
+    const validate = ({ rating, feedback }) => {
         let isValid = true;
 
         if (rating === 0) {
@@ -52,7 +52,9 @@ const FeedbackForm = () => {
     };
 
     const handleSubmit = () => {
-        let reqBody = { feedback, rating };
+        let comments = feedback.trim() || "Nil";
+
+        let reqBody = { feedback: comments, rating };
         if (!validate(reqBody)) return;
         submitFeedback(reqBody)
             .then(res => {
