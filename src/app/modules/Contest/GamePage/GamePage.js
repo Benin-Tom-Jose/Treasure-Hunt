@@ -192,8 +192,11 @@ const GamePage = () => {
                                             <img className="emoji" alt="ninja" src={getAsset("ninja.png", "img")} />
                                     </h6>
                                     <h6 className="content">Please wait while we cook some questions for you.</h6> */}
-                                    <h6 className="content">You have conquered INCOGNITO and made us all proud.</h6>
-                                    <h6 className="content">Congratulations on your achievement. Great job, keep it up.👍</h6>
+                                    <h6 className="content">Thank you Litmus7ites. You have been wonderful.</h6>
+                                    <h6 className="content">Remember, INCOGNITO never ends...</h6>
+                                    <h6 className="content"></h6>
+                                    <h6 className="content"></h6>
+                                    <h6 className="content">./team_incognito</h6>
 
                                     <blockquote className="wishes">
                                         May this year’s Christmas be the best Christmas ever. Warmest wishes to you and your family. Have a great and wonderful Christmas and New Year!
