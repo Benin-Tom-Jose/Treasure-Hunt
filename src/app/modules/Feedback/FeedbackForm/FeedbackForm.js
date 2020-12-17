@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { Rating } from '@material-ui/lab';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Dialog, DialogContent, Icon, IconButton, TextField } from '@material-ui/core';
+import { Button, Dialog, DialogContent, Fab, Icon, IconButton, TextField, Tooltip } from '@material-ui/core';
 
 import { submitFeedback } from '../Feedback.service';
 import { setIsFeedbackModalOpen } from '../Feedback.actions';
@@ -65,38 +65,54 @@ const FeedbackForm = () => {
     };
 
     return (
-        <Dialog
-            open={isModalOpen}
-            className="feedback-form-wrapper"
-            fullWidth
-            maxWidth="xs"
-        >
-            <DialogContent className="feedback-form-container">
-                <IconButton onClick={handleClose} className="btn-close"><Icon>close</Icon></IconButton>
-                <p className="content">How would you rate your experience?</p>
-                <Rating
-                    name="rating"
-                    defaultValue={0}
-                    value={rating}
-                    precision={0.25}
-                    onChange={handleRatingChange}
-                    icon={
-                        <Icon fontSize="large">favorite</Icon>
-                    }
-                />
-                <TextField
-                    className="comments"
-                    label="Comments"
-                    value={feedback}
-                    onChange={handleFeedbackChange}
-                    fullWidth
-                    multiline
-                    rows={2}
-                    rowsMax={4}
-                />
-                <Button color="primary" variant="contained" onClick={handleSubmit}>Send</Button>
-            </DialogContent>
-        </Dialog>
+        <>
+            <Tooltip title="Feedback" arrow>
+                <Fab
+                    color="primary"
+                    className="btn-feedback"
+                    onClick={() => { setIsModalOpen(true) }}
+                    style={{
+                        "position": "absolute",
+                        "bottom": "8rem",
+                        "right": "2rem",
+                    }}
+                >
+                    <Icon>feedback</Icon>
+                </Fab>
+            </Tooltip>
+            <Dialog
+                open={isModalOpen}
+                className="feedback-form-wrapper"
+                fullWidth
+                maxWidth="xs"
+            >
+                <DialogContent className="feedback-form-container">
+                    <IconButton onClick={handleClose} className="btn-close"><Icon>close</Icon></IconButton>
+                    <p className="content">How would you rate your experience?</p>
+                    <Rating
+                        name="rating"
+                        defaultValue={0}
+                        value={rating}
+                        precision={0.25}
+                        onChange={handleRatingChange}
+                        icon={
+                            <Icon fontSize="large">favorite</Icon>
+                        }
+                    />
+                    <TextField
+                        className="comments"
+                        label="Comments"
+                        value={feedback}
+                        onChange={handleFeedbackChange}
+                        fullWidth
+                        multiline
+                        rows={2}
+                        rowsMax={4}
+                    />
+                    <Button color="primary" variant="contained" onClick={handleSubmit}>Send</Button>
+                </DialogContent>
+            </Dialog>
+        </>
     );
 };
 

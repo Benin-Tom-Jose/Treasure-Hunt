@@ -221,11 +221,21 @@
                     > a {
                         color: $clr-primary-main;
                         display: flex;
-                        &:first-child{
+                        &:first-child {
                             margin-right: 1rem;
                         }
-
                     }
+                }
+            }
+
+            .project-name {
+                margin-top: 5rem;
+                margin-top: 8rem;
+                font-size: $fs-md;
+                font-family: monospace;
+
+                > span {
+                    margin-left: 0.75rem;
                 }
             }
 
@@ -234,8 +244,6 @@
                 // flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                margin-top: 5rem;
-                margin-top: 8rem;
 
                 .label {
                     color: #878787;

@@ -215,6 +215,10 @@ const Home = () => {
                                 <a href="tel: 91 9633569522">Benin : +91 9633569522</a>
                             </span>
                         </p>
+                        <h1 className="project-name">
+                            Project
+                            <span><a href="https://github.com/sebin-vincent/Treasure_Hunt" target="_blank" rel="noopener noreferrer">Incognito</a></span>
+                        </h1>
                         <div className="highlight-container">
                             <span className="label">Made with <Icon className="icon">favorite</Icon></span>
                             <span className="creators">@Litmus7</span>
