@@ -6,6 +6,7 @@ const ENDPOINTS = {
     getLeaderboard: "api/leaderboard?contestId={:id}&page={:page}&limit={:limit}",
     getCurrentQuestion: "api/questions/currentquestion/?contestId={:contestId}",
     submitContestAnswer: "api/questions/answer",
+    submitFeedback: "api/feedback",
 };
 
 const replaceParams = (url, params) => {

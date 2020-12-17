@@ -4,6 +4,7 @@ import AppReducer from '../../app/App.reducer';
 import LoggerMiddleware from '../middleware/Logger';
 import AuthReducer from '../../app/modules/Auth/Auth.reducer';
 import MonitorReducerEnhancer from '../enhancers/MonitorReducer';
+import FeedbackReducer from '../../app/modules/Feedback/Feedback.reducer';
 
 
 const configureAppStore = (preloadedState) => {
@@ -11,6 +12,7 @@ const configureAppStore = (preloadedState) => {
         reducer: {
             AppReducer,
             AuthReducer,
+            FeedbackReducer,
         },
         middleware: [LoggerMiddleware, ...getDefaultMiddleware()],
         preloadedState,

@@ -4,6 +4,7 @@ import Proptypes from 'prop-types';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import LoginModal from '../../modules/Auth/LoginModal/LoginModal';
+import FeedbackForm from '../../modules/Feedback/FeedbackForm/FeedbackForm';
 
 import './AppContainer.scss';
 
@@ -15,6 +16,7 @@ const AppContainer = (props) => {
             {props.children}
             {!props.hideFooter && <Footer />}
             <LoginModal />
+            <FeedbackForm />
         </div>
     );
 };

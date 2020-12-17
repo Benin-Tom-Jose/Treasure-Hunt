@@ -9,6 +9,7 @@ import { Dialog, DialogContent, Icon, IconButton } from '@material-ui/core';
 import { clearNextUrl } from '../../../App.actions';
 import { setToken } from '../../../../config/Utils';
 import { getGoogleAccessToken } from '../Auth.service';
+import { setIsFeedbackModalOpen } from '../../Feedback/Feedback.actions';
 import { setAccessToken, setGoogleToken, setIsLoginModalOpen, setRefreshToken } from '../Auth.actions';
 
 import './LoginModal.scss';
@@ -39,6 +40,7 @@ const LoginModal = () => {
                         history.push(nextUrl);
                     }
                     handleModalClose();
+                    dispatch(setIsFeedbackModalOpen(true));
                     history.push(history.location.pathname);
                 })
                 .catch(error => {
