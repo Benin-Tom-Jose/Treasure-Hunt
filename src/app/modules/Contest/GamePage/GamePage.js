@@ -81,7 +81,7 @@ const GamePage = () => {
         else {
             setAnswer(event.target.value.toLowerCase());
         }
-        if(answer.length===1){
+        if (answer.length === 1) {
             setAnswer(event.target.value.toLowerCase());
         }
     };
@@ -184,13 +184,20 @@ const GamePage = () => {
                     currentQuestion && currentQuestion.lastQuestion ?
                         <div className="last-question-wrapper">
                             <div className="last-question-container">
-                                <h1 className="section-title">{`LEVEL ${currentQuestion && currentQuestion.level}`}</h1>
-                                <p className="time">{`Time Completed : ${currentQuestion && currentQuestion.timeCompleted ? formatDate(currentQuestion.timeCompleted, "MMM D, YYYY, hh : mm a") : ''}`}</p>
+                                <h1 className="section-title">{`😃Congratulations!!!🎉`}</h1>
+                                {/* <h1 className="section-title">{`LEVEL ${currentQuestion && currentQuestion.level}`}</h1> */}
+                                <p className="time">{`Completed on: ${currentQuestion && currentQuestion.timeCompleted ? formatDate(currentQuestion.timeCompleted, "MMM D, YYYY, hh : mm a") : ''}`}</p>
                                 <div className="content-container">
-                                    <h6 className="content">Looks like you are a ninja
+                                    {/* <h6 className="content">Looks like you are a ninja
                                             <img className="emoji" alt="ninja" src={getAsset("ninja.png", "img")} />
                                     </h6>
-                                    <h6 className="content">Please wait while we cook some questions for you.</h6>
+                                    <h6 className="content">Please wait while we cook some questions for you.</h6> */}
+                                    <h6 className="content">You have conquered INCOGNITO and made us all proud.</h6>
+                                    <h6 className="content">Congratulations on your achievement. Great job, keep it up.👍</h6>
+
+                                    <blockquote className="wishes">
+                                        May this year’s Christmas be the best Christmas ever. Warmest wishes to you and your family. Have a great and wonderful Christmas and New Year!
+                                    </blockquote>
                                 </div>
                                 <div className="action-wrapper">
                                     <Button variant="outlined" color="primary" onClick={gotoLeaderboard}>Go to Leaderboard</Button>

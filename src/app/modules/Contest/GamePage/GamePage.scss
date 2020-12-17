@@ -1,12 +1,12 @@
 @import "../../../../config/Styles.scss";
 
 .game-page-wrapper {
-    min-height: calc(100% - 12rem);
+    min-height: calc(100vh - 18rem);
     padding-top: 5rem;
     position: relative;
     background: $clr-dark-100;
     background-image: url("../../../../assets/img/bg-landscape-4.jpg");
-    background-size: contain;
+    background-size: cover;
     z-index: 0;
 
     &::before {
@@ -70,6 +70,13 @@
                         height: 5rem;
                         width: 5rem;
                     }
+                }
+
+                .wishes {
+                    font-size: $fs-sm;
+                    font-family: cursive;
+                    color: $clr-secondary-main;
+                    text-align: center;
                 }
             }
 
